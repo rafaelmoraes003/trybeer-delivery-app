@@ -14,6 +14,7 @@ module.exports = {
           model: 'users',
           key: 'id'
         },
+        field: 'user_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
@@ -24,24 +25,29 @@ module.exports = {
           model: 'users',
           key: 'id'
         },
+        field: 'seller_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       totalPrice: {
         type: Sequelize.DECIMAL,
         allowNull: false,
+        field: 'total_price',
       },
       deliveryAddress: {
         allowNull: false,
         type: Sequelize.STRING,
+        field: 'delivery_address',
       },
       deliveryNumber: {
         allowNull: false,
         type: Sequelize.STRING,
+        field: 'delivery_number',
       },
       saleDate: {
         allowNull: false,
         type: Sequelize.DATE,
+        field: 'sale_date',
       },  
       status: {
         allowNull: false,
@@ -52,6 +58,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('BlogPosts');
+    await queryInterface.dropTable('sales');
   }
 };
