@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.DECIMAL,
         allowNull: false,
       },
-      url_image: {
+      urlImage: {
         type: Sequelize.STRING,
         allowNull: false,
       },
