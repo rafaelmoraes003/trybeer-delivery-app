@@ -1,9 +1,27 @@
-import React from 'react';
-
 function Login() {
   return (
     <div>
-      <h1>Login</h1>
+      <input
+        data-testid="common_login__input-email"
+      />
+      <input
+        data-testid="common_login__input-password"
+      />
+
+      <button
+        data-testid="common_login__button-login"
+        type="button"
+      >
+        Login
+      </button>
+
+      <button
+        data-testid="common_login__button-register"
+        type="button"
+      >
+        Ainda não tenho conta
+      </button>
+
     </div>
   );
 }
