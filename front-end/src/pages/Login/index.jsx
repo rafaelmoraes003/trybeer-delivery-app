@@ -60,6 +60,7 @@ function Login() {
       <button
         data-testid="common_login__button-register"
         type="button"
+        onClick={ () => navigateTo('/register') }
       >
         Ainda não tenho conta
       </button>
