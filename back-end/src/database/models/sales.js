@@ -6,15 +6,15 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     userId: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     sellerId: {
-      type: DataTypes.DECIMAL(4,2),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     totalPrice: {
-      type:DataTypes.STRING,
+      type:DataTypes.DECIMAL,
       allowNull: false
     },
     deliveryAddress: {
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     },  
     status: {
       allowNull: false,
-      type: DataTypes.DATE, 
+      type: DataTypes.STRING, 
     }
   },
   {
