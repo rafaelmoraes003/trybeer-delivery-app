@@ -21,7 +21,8 @@ function Register() {
       setBtnDisabled(false);
     }
 
-    if (!emailRegex.test(email) || password.length < minLengthPassword || name.length < minLengthName) {
+    if (!emailRegex.test(email) || password.length < minLengthPassword
+      || name.length < minLengthName) {
       setLoginFailed(true);
       setBtnDisabled(true);
     }
@@ -29,10 +30,9 @@ function Register() {
     if (email === '' || password === '' || name === '') setLoginFailed(false);
   }, [data]);
 
-    function handleChange({ target: { name, value } }) {
-      setData((state) => ({ ...state, [name]: value }));
-    }
-
+  function handleChange({ target: { name, value } }) {
+    setData((state) => ({ ...state, [name]: value }));
+  }
 
   return (
     <main>
@@ -76,7 +76,7 @@ function Register() {
         </label>
         <button
           type="button"
-          disabled={ btnDisabled  }
+          disabled={ btnDisabled }
           data-testid="common_register__button-register"
         >
           CADASTRAR
@@ -88,7 +88,9 @@ function Register() {
             <p data-testid="common_login__element-invalid_register">
               O nome, e-mail e senha incorretos.
             </p>
-          )}
+          )
+      }
+
     </main>
   );
 }
