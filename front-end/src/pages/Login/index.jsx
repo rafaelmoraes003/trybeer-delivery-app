@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Input';
 
 function Login() {
@@ -10,6 +11,8 @@ function Login() {
     const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     return regex.test(email) && password.length >= MIN_PASSWORD_LENGTH;
   };
+
+  const navigate = useNavigate();
 
   console.log(email, password);
 
@@ -41,6 +44,7 @@ function Login() {
       <button
         data-testid="common_login__button-register"
         type="button"
+        onClick={ () => navigate('/register') }
       >
         Ainda não tenho conta
       </button>
