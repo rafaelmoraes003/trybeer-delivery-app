@@ -11,7 +11,9 @@ const create = async ({ name, email, password, role }) => {
   const checkEmail = await User.findOne({ where: { email } });
   const checkName = await User.findOne({ where: { name } });
 
-  if (checkEmail || checkName) throw new CustomError(409, 'User already registered');
+  if (checkEmail) throw new CustomError(409, 'This Email is already registered');
+  if (checkName) throw new CustomError(409, 'This Username is already registered');
+  
   const cryptPassword = md5(password);
 
   const response = await User.create(({ name, email, password: cryptPassword, role }));
