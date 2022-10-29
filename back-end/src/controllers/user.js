@@ -11,9 +11,9 @@ const getAll = async (req, res) => {
 
 const create = async (req, res) => {
   const { name, email, password, role } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   // try {
-    await userService.create(name, email, password, role);
+    await userService.create({ name, email, password, role });
     return res.status(201).json({ message: 'Created' });
   // } catch (err) {
     // console.log(err);
