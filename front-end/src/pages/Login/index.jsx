@@ -28,7 +28,7 @@ function Login() {
     if (body.error) {
       setInvalidUserMessage(true);
     } else {
-      localStorage.setItem('userName', JSON.stringify(body.name));
+      localStorage.setItem('userData', JSON.stringify(body));
       navigateTo(`/${body.role}/products`);
     }
   };
