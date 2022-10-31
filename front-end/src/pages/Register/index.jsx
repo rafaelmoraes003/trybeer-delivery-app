@@ -25,11 +25,8 @@ function Register() {
 
     if (!emailRegex.test(email) || password.length < minLengthPassword
       || name.length < minLengthName) {
-      setLoginFailed(true);
       setBtnDisabled(true);
     }
-
-    if (email === '' || password === '' || name === '') setLoginFailed(false);
   }, [data]);
 
   const createUser = async () => {
