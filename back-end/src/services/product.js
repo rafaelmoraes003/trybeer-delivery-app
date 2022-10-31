@@ -19,8 +19,9 @@ const getById = async (id) => {
   return product;
 };
 
-const update = async (id) => {
-  const updatedProduct = await Product.update({ where: { id } });
+const update = async (id, productData) => {
+  const { name, price, urlImage } = productData;
+  const updatedProduct = await Product.update({ name, price, urlImage }, { where: { id } });
   if (!updatedProduct) throw new CustomError(notFound, 400);
   return updatedProduct;
 };
