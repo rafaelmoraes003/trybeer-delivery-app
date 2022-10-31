@@ -5,4 +5,9 @@ const create = async (productData) => {
   return newProduct;
 };
 
-module.exports = { create };
+const getAll = async () => {
+  const allProducts = await Product.findAll();
+  return allProducts;
+};
+
+module.exports = { create, getAll };

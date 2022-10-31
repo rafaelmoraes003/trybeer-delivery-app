@@ -5,4 +5,9 @@ const create = async (req, res) => {
   return res.status(201).json(newProduct);
 };
 
-module.exports = { create };
+const getAll = async (req, res) => {
+  const allProducts = await productService.findAll();
+  return res.status(200).json(allProducts);
+};
+
+module.exports = { create, getAll };
