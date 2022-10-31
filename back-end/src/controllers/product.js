@@ -22,4 +22,10 @@ const update = async (req, res) => {
   return res.status(200).json(updatedProduct);
 };
 
-module.exports = { create, getAll, getById, update };
+const destroy = async (req, res) => {
+  const { id } = req.params;
+  await productService.destroy(id);
+  return res.status(200).json({ message: 'product deleted' });
+};
+
+module.exports = { create, getAll, getById, update, destroy };
