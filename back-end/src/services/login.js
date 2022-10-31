@@ -3,6 +3,7 @@ const { CustomError } = require('../utils/CustomError');
 const { validateBody } = require('../utils/validateBody');
 const { decryptPassword } = require('../utils/descryptPassword');
 const { loginSchema } = require('../schemas/login');
+const { createToken } = require('../utils/createToken');
 
 const login = async (userData) => {
   validateBody(userData, loginSchema);
@@ -19,7 +20,8 @@ const login = async (userData) => {
     throw new CustomError('User not found.', 404);
   }
 
-  return { code: 200, data: { name: user.name, role: user.role } };
+  const token = createToken(user);
+  return { code: 200, data: { name: user.name, role: user.role, email: user.email, token } };
 };  
 
 module.exports = { login };

@@ -13,13 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    password: {
-      type:DataTypes.STRING,
-      allowNull: false
-    },
     urlImage: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'url_image'
     }
   },
   
