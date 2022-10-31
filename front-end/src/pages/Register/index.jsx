@@ -102,12 +102,11 @@ function Register() {
         </button>
       </form>
       {
-        (loginFailed)
-          && (
-            <p data-testid="common_login__element-invalid_register">
-              Usuário já existente.
-            </p>
-          )
+        (loginFailed && (
+          <p data-testid="common_login__element-invalid_register">
+            Usuário já existente.
+          </p>
+        ))
       }
 
     </main>
