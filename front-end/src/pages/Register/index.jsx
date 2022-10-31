@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -44,6 +44,7 @@ function Register() {
     if (body.error) {
       setLoginFailed(true);
     } else {
+      localStorage.setItem('userName', JSON.stringify(body.name));
       navigateTo(`/${body.role}/products`);
     }
   };
@@ -103,7 +104,7 @@ function Register() {
       </form>
       {
         (loginFailed && (
-          <p data-testid="common_login__element-invalid_register">
+          <p data-testid="common_register__element-invalid_register">
             Usuário já existente.
           </p>
         ))
