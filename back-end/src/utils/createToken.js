@@ -1,14 +1,14 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-
-const { JWT_SECRET } = process.env;
+const { jwtKey } = require('./readTokenSecretKey');
+// const { JWT_SECRET } = process.env;
 
 const createToken = (userData) => {
   const jwtConfig = {
     expiresIn: '3d',
     algorithm: 'HS256',
   };
-  const token = jwt.sign({ userData }, JWT_SECRET, jwtConfig);
+  const token = jwt.sign({ userData }, jwtKey, jwtConfig);
   return token;
 };
 
