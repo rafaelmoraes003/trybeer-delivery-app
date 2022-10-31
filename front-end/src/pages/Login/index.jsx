@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Input';
-import StatusCodes from '../../utils/StatusCodes';
 
 function Login() {
   const navigateTo = useNavigate();
@@ -11,12 +10,12 @@ function Login() {
 
   const validateFields = () => {
     const MIN_PASSWORD_LENGTH = 6;
-    const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const regex = /^[a-z0-9._]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
     return regex.test(email) && password.length >= MIN_PASSWORD_LENGTH;
   };
 
   const getUser = async () => {
-    const { status } = await fetch('http://localhost:3001/login', {
+    const response = await fetch('http://localhost:3001/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,10 +23,13 @@ function Login() {
       body: JSON.stringify({ email, password }),
     });
 
-    if (status === StatusCodes.NOT_FOUND) {
+    const body = await response.json();
+
+    if (body.error) {
       setInvalidUserMessage(true);
     } else {
-      navigateTo('/customer/products');
+      localStorage.setItem('userName', JSON.stringify(body.name));
+      navigateTo(`/${body.role}/products`);
     }
   };
 

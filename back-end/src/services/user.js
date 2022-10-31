@@ -1,23 +1,20 @@
-const md5 = require('md5');
 const { User } = require('../database/models');
-const CustomError = require('../middlewares/CustomError');
+const { decryptPassword } = require('../utils/descryptPassword');
+const { validateBody } = require('../utils/validateBody');
+const { validateUser } = require('../utils/validateUser');
+const { userSchema } = require('../schemas/user');
 
 const getAll = async () => {
   const users = await User.findAll({ attributes: { exclude: 'password' } });
-  return users;
+  return { code: 200, data: users };
 };
 
-const create = async ({ name, email, password, role }) => {
-  const checkEmail = await User.findOne({ where: { email } });
-  const checkName = await User.findOne({ where: { name } });
-
-  if (checkEmail) throw new CustomError(409, 'This Email is already registered');
-  if (checkName) throw new CustomError(409, 'This Username is already registered');
-  
-  const cryptPassword = md5(password);
-
-  const response = await User.create(({ name, email, password: cryptPassword, role }));
-  return response;
+const create = async (userData) => {
+  validateBody(userData, userSchema);
+  await validateUser(userData.email);
+  const cryptedPassword = decryptPassword(userData.password);
+  const newUser = await User.create({ ...userData, password: cryptedPassword });
+  return { code: 201, data: newUser };
 };
 
 module.exports = { getAll, create };
