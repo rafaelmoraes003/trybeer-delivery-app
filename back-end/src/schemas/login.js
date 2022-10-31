@@ -1,7 +1,7 @@
 const joi = require('joi');
 
 const loginSchema = joi.object({
-  email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+  email: joi.string().email().required(),
   password: joi.string().min(6).required(),
 });
 
