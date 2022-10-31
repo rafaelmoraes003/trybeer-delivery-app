@@ -19,8 +19,8 @@ const getById = async (req, res) => {
 const update = async (req, res) => {
   const { name, price, urlImage } = req.body;
   const { id } = req.params;
-  const updatedProduct = await productService.update(id, { name, price, urlImage });
-  return res.status(200).json(updatedProduct);
+  await productService.update(id, { name, price, urlImage });
+  return res.status(200).json({ message: 'product updated' });
 };
 
 const destroy = async (req, res) => {
