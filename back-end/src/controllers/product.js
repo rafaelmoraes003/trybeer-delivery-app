@@ -6,8 +6,20 @@ const create = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  const allProducts = await productService.findAll();
+  const allProducts = await productService.getAll();
   return res.status(200).json(allProducts);
 };
 
-module.exports = { create, getAll };
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const allProducts = await productService.getById(id);
+  return res.status(200).json(allProducts);
+};
+
+const update = async (req, res) => {
+  const { id } = req.params;
+  const updatedProduct = await productService.update(id);
+  return res.status(200).json(updatedProduct);
+};
+
+module.exports = { create, getAll, getById, update };

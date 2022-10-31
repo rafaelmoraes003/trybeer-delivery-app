@@ -1,3 +1,4 @@
+const { CustomError } = require('puppeteer');
 const { Product } = require('../database/models');
 
 const create = async (productData) => {
@@ -10,4 +11,16 @@ const getAll = async () => {
   return allProducts;
 };
 
-module.exports = { create, getAll };
+const getById = async (id) => {
+  const product = await Product.findOne({ where: { id } });
+  if (!product) throw new CustomError('Product not Found', 400);
+  return product;
+};
+
+const update = async (id) => {
+  const updatedProduct = await Product.update(id);
+  if (!updatedProduct) throw new CustomError('Product not Found', 400);
+  return updatedProduct;
+};
+
+module.exports = { create, getAll, getById, update };
