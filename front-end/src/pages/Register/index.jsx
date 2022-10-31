@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+  const navigateTo = useNavigate();
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -23,12 +25,28 @@ function Register() {
 
     if (!emailRegex.test(email) || password.length < minLengthPassword
       || name.length < minLengthName) {
-      setLoginFailed(true);
       setBtnDisabled(true);
     }
-
-    if (email === '' || password === '' || name === '') setLoginFailed(false);
   }, [data]);
+
+  const createUser = async () => {
+    const { name, email, password } = data;
+    const response = await fetch('http://localhost:3001/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, password }),
+    });
+
+    const body = await response.json();
+
+    if (body.error) {
+      setLoginFailed(true);
+    } else {
+      navigateTo(`/${body.role}/products`);
+    }
+  };
 
   function handleChange({ target: { name, value } }) {
     setData((state) => ({ ...state, [name]: value }));
@@ -78,6 +96,7 @@ function Register() {
           type="button"
           disabled={ btnDisabled }
           data-testid="common_register__button-register"
+          onClick={ createUser }
         >
           CADASTRAR
         </button>
@@ -86,7 +105,7 @@ function Register() {
         (loginFailed)
           && (
             <p data-testid="common_login__element-invalid_register">
-              O nome, e-mail e senha incorretos.
+              Usuário já existente.
             </p>
           )
       }
