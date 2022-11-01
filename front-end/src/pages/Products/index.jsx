@@ -19,6 +19,15 @@ function Products() {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    const cartItems = products.filter((product) => product.quantity > 0);
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    const sumOfItems = JSON.parse(localStorage.getItem('cart')).reduce((acc, curr) => (
+      (Number(curr.price) * curr.quantity) + acc
+    ), 0).toFixed(2);
+    setCartSum(sumOfItems);
+  }, [products]);
+
   return (
     <div>
       <NavBar />
