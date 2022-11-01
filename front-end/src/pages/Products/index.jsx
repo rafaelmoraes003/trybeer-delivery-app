@@ -36,6 +36,16 @@ function Products() {
     setProducts(productToIncrease);
   };
 
+  const decrementQuantity = (id) => {
+    const productToDecrease = products.map((product) => {
+      if (product.id === id && product.quantity > 0) {
+        product.quantity -= 1;
+      }
+      return product;
+    });
+    setProducts(productToDecrease);
+  };
+
   return (
     <div>
       <NavBar />
