@@ -1,6 +1,6 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const CustomError = require('./CustomError');
+const { CustomError } = require('./CustomError');
 const { jwtKey } = require('./readTokenSecretKey');
 
 const authToken = (req, res, next) => {
@@ -9,13 +9,15 @@ const authToken = (req, res, next) => {
   if (!token) throw new CustomError('Token not found', 401);
 
   try {
-    const decoded = jwt.verify(token, jwtKey);
-    req.email = decoded;
-    // console.log(decoded);
+    const { userData } = jwt.verify(token, jwtKey);
+    console.log(userData);
+    if (userData.role !== 'administrator') {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+    next();
   } catch (err) {
-    return res.status(401).json({ message: 'Expired or invalid token' });
+    throw new CustomError('Expired or invalid token', 401);
   }
-  next();
 };
 
 module.exports = { authToken };
