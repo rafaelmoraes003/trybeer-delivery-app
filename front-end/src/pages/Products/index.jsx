@@ -9,6 +9,16 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [cartSum, setCartSum] = useState('0.00');
 
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await fetch('http://localhost:3001/products');
+      const data = await response.json();
+      const productsWithQuantity = data.map((product) => ({ ...product, quantity: 0 }));
+      setProducts(productsWithQuantity);
+    };
+    getProducts();
+  }, []);
+
   return (
     <div>
       <NavBar />
