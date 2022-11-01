@@ -28,6 +28,14 @@ function Products() {
     setCartSum(sumOfItems);
   }, [products]);
 
+  const incrementQuantity = (id) => {
+    const productToIncrease = products.map((product) => {
+      if (product.id === id) product.quantity += 1;
+      return product;
+    });
+    setProducts(productToIncrease);
+  };
+
   return (
     <div>
       <NavBar />
