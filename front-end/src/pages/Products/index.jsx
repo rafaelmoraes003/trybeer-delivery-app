@@ -46,6 +46,16 @@ function Products() {
     setProducts(productToDecrease);
   };
 
+  const handleQuantityChangeOnInput = (event) => {
+    const productToModify = products.map((product) => {
+      if (product.id === Number(event.target.id)) {
+        product.quantity = Number(event.target.value);
+      }
+      return product;
+    });
+    setProducts(productToModify);
+  };
+
   return (
     <div>
       <NavBar />
