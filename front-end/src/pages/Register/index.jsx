@@ -44,7 +44,7 @@ function Register() {
     if (body.error) {
       setLoginFailed(true);
     } else {
-      localStorage.setItem('userName', JSON.stringify(body.name));
+      localStorage.setItem('user', JSON.stringify(body));
       navigateTo(`/${body.role}/products`);
     }
   };
