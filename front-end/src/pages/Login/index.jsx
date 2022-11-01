@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Input from '../../components/Input';
+import Input from '../../components/InputWithLabel/index';
 
 function Login() {
   const navigateTo = useNavigate();
