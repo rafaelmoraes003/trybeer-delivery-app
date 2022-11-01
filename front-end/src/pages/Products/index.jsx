@@ -56,6 +56,8 @@ function Products() {
     setProducts(productToModify);
   };
 
+  const disableButton = () => cartSum === '0.00';
+
   return (
     <div>
       <NavBar />
