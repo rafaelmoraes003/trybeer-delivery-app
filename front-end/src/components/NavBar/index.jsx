@@ -9,10 +9,10 @@ function NavBar() {
         type="button"
         data-testid="customer_products__element-navbar-link-products"
         onClick={ () => { navigateTo('/customer/products'); } }
-    >
-      PRODUTOS
+      >
+        PRODUTOS
 
-    </button>
+      </button>
       <button
         type="button"
         data-testid="customer_products__element-navbar-link-orders"
