@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router';
 
 function NavBar() {
   const navigateTo = useNavigate();
+  const { name } = JSON.parse(localStorage.getItem('user'));
+
+  const logout = () => {
+    localStorage.removeItem('user');
+    navigateTo('/login');
+  };
+
   return (
     <div>
       <button
@@ -21,16 +28,16 @@ function NavBar() {
         MEUS PEDIDOS
       </button>
 
-      <button
-        type="button"
+      <div
         data-testid="customer_products__element-navbar-user-full-name"
       >
-        USUÁRIO
-      </button>
+        { name }
+      </div>
 
       <button
         type="button"
         data-testid="customer_products__element-navbar-link-logout"
+        onClick={ logout }
       >
         SAIR
       </button>
