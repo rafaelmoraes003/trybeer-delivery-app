@@ -2,6 +2,7 @@ const { CustomError } = require('puppeteer');
 const { Product } = require('../database/models');
 const { validateBody } = require('../utils/validateBody');
 const { productSchema } = require('../schemas/product');
+const { validateProduct } = require('../utils/validateProduct');
 
 const notFound = 'Product not Found';
 
@@ -23,6 +24,7 @@ const getById = async (id) => {
 };
 
 const update = async (id, productData) => {
+  await validateProduct(id);
   const { name, price, urlImage } = productData;
   validateBody(productData, productSchema);
   const updatedProduct = await Product.update({ name, price, urlImage }, { where: { id } });
