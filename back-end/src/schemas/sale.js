@@ -1,8 +1,8 @@
 const joi = require('joi');
 
-const salesSchema = joi.object({
+const saleSchema = joi.object({
   userId: joi.number().required(),
-  sellerId: joi.number().require(),
+  sellerId: joi.number().required(),
   totalPrice: joi.number().positive().required(),
   deliveryAddress: joi.string().min(5).required(),
   deliveryNumber: joi.number().required(),
@@ -10,4 +10,4 @@ const salesSchema = joi.object({
   status: joi.string().required(),
 });
 
-module.exports = { salesSchema };
+module.exports = { saleSchema };
