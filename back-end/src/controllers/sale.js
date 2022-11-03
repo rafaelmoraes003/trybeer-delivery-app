@@ -1,4 +1,5 @@
 const saleService = require('../services/sale');
+const userService = require('../services/user');
 
 const create = async (req, res) => {
   const newSale = await saleService.create(req.body);
@@ -6,20 +7,20 @@ const create = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  const allsales = await saleService.getAll();
-  return res.status(200).json(allsales);
+  const allSales = await saleService.getAll();
+  return res.status(200).json(allSales);
 };
 
 const getAllBySellers = async (req, res) => {
-  const { sellerId } = req.params;
-  const allsales = await saleService.getAllBySellers(sellerId);
-  return res.status(200).json(allsales);
+  const { data } = await userService.getSellers();
+  const allSales = await saleService.getAllBySellers(data);
+  return res.status(200).json(allSales);
 };
 
 const getAllByUsers = async (req, res) => {
-  const { userId } = req.params;
-  const allsales = await saleService.getAllByUsers(userId);
-  return res.status(200).json(allsales);
+  const { data } = await userService.getSellers();
+  const allSales = await saleService.getAllByUsers(data);
+  return res.status(200).json(allSales);
 };
 
 const getById = async (req, res) => {
@@ -29,19 +30,9 @@ const getById = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const { userId, sellerId, totalPrice,
-    deliveryAddress, deliveryNumber, saleDate, status } = req.body;
+  const { body } = req;
   const { id } = req.params;
-  await saleService.update(id, 
-  { 
-    userId,
-    sellerId,
-    totalPrice,
-    deliveryAddress,
-    deliveryNumber,
-    saleDate,
-    status, 
-  });
+  await saleService.update(id, body);
   return res.status(200).json({ message: 'sale updated' });
 };
 
