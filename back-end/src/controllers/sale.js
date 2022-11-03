@@ -13,12 +13,13 @@ const getAll = async (req, res) => {
 
 const getAllBySellers = async (req, res) => {
   const { data } = await userService.getSellers();
+
   const allSales = await saleService.getAllBySellers(data);
   return res.status(200).json(allSales);
 };
 
 const getAllByUsers = async (req, res) => {
-  const { data } = await userService.getSellers();
+  const { data } = await userService.getAll();
   const allSales = await saleService.getAllByUsers(data);
   return res.status(200).json(allSales);
 };

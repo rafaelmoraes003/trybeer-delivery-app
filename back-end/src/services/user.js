@@ -15,10 +15,6 @@ const getSellers = async () => {
   return { code: 200, data: sellers };
 };
 
-// const getById = async () => {
-//   const user = await User.findOne()
-// }
-
 const create = async (userData) => {
   validateBody(userData, userSchema);
   await validateUser(userData.email);
