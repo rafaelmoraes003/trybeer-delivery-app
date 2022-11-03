@@ -21,8 +21,8 @@ const getById = async (id) => {
 
 const update = async (id, productData) => {
   const { name, price, urlImage } = productData;
-  if (!id) throw new CustomError(notFound, 400);
   const updatedProduct = await Product.update({ name, price, urlImage }, { where: { id } });
+  if (!updatedProduct) throw new CustomError(notFound, 400);
   return updatedProduct;
 };
 
