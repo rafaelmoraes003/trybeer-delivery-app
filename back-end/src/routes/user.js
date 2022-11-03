@@ -5,6 +5,7 @@ const { authToken } = require('../utils/authToken');
 const router = Router();
 
 router.get('/', authToken, userController.getAll);
+router.get('/sellers', userController.getSellers);
 router.post('/', userController.create);
 
 module.exports = router;

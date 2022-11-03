@@ -9,6 +9,12 @@ const getAll = async () => {
   return { code: 200, data: users };
 };
 
+const getSellers = async () => {
+  const sellers = await User
+  .findAll({ where: { role: 'seller' }, attributes: { exclude: 'password' } });
+  return { code: 200, data: sellers };
+};
+
 const create = async (userData) => {
   validateBody(userData, userSchema);
   await validateUser(userData.email);
@@ -17,4 +23,4 @@ const create = async (userData) => {
   return { code: 201, data: newUser };
 };
 
-module.exports = { getAll, create };
+module.exports = { getAll, create, getSellers };

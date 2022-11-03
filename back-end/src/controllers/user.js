@@ -9,6 +9,15 @@ const getAll = async (_req, res, next) => {
   }
 };
 
+const getSellers = async (_req, res, next) => {
+  try {
+    const { code, data } = await userService.getSellers();
+    res.status(code).json(data);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const create = async (req, res, next) => {
   const { name, email, password, role } = req.body;
   try {
@@ -20,5 +29,5 @@ const create = async (req, res, next) => {
 };
 
 module.exports = {
-  getAll, create,
+  getAll, create, getSellers,
 };
