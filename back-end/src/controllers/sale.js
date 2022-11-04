@@ -49,7 +49,7 @@ const getById = async (req, res, next) => {
   }
 };
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
   const { body } = req;
   const { id } = req.params;
   try {
@@ -60,7 +60,7 @@ const update = async (req, res) => {
   }
 };
 
-const destroy = async (req, res) => {
+const destroy = async (req, res, next) => {
   const { id } = req.params;
   try {
     await saleService.destroy(id);
