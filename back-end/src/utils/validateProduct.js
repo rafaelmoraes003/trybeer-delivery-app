@@ -8,4 +8,11 @@ const validateProduct = async (id) => {
   }
 };
 
-module.exports = { validateProduct };
+const validateProductExist = async (name) => {
+  const product = await Product.findOne({ where: { name } });
+  if (product) {
+    throw new CustomError('Product already exists.', 404);
+  }
+};
+
+module.exports = { validateProduct, validateProductExist };
