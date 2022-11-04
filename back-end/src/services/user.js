@@ -3,6 +3,7 @@ const { decryptPassword } = require('../utils/descryptPassword');
 const { validateBody } = require('../utils/validateBody');
 const { validateUser } = require('../utils/validateUser');
 const { userSchema } = require('../schemas/user');
+const { createToken } = require('../utils/createToken');
 
 const getAll = async () => {
   const users = await User.findAll({ attributes: { exclude: 'password' } });
@@ -20,7 +21,8 @@ const create = async (userData) => {
   await validateUser(userData.email);
   const cryptedPassword = decryptPassword(userData.password);
   const newUser = await User.create({ ...userData, password: cryptedPassword });
-  return { code: 201, data: newUser };
+  const token = createToken(newUser);
+  return { code: 201, data: { ...newUser.dataValues, token } };
 };
 
 module.exports = { getAll, create, getSellers };

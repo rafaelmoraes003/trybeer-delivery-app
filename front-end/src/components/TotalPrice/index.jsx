@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
+import getTotalPrice from '../../utils/getTotalPrice';
 
 function TotalPrice() {
   const [totalPrice, setTotalPrice] = useState('00,00');
 
   useEffect(() => {
-    const cartProducts = JSON.parse(localStorage.getItem('cart'));
-    const price = cartProducts
-      .reduce((acc, curr) => (Number(curr.price) * curr.quantity) + acc, 0);
+    const price = getTotalPrice();
     setTotalPrice(price);
   }, []);
 
