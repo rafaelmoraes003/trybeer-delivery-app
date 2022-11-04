@@ -1,15 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import getTotalPrice from '../../utils/getTotalPrice';
 
 function TableProducts() {
   const [products, setProducts] = useState([]);
-
+  const [totalPrice, setTotalPrice] = useState('00,00');
+  
   useEffect(() => {
     const cartProducts = JSON.parse(localStorage.getItem('cart'));
     setProducts(cartProducts);
   }, []);
 
+  useEffect(() => {
+    const price = getTotalPrice();
+    setTotalPrice(price);
+  }, [products]);
+
+    function removeItem(productId) {
+      const newCart = products.filter((item) => item.id !== Number(productId));
+      localStorage.setItem('cart', JSON.stringify(newCart));
+      setProducts(newCart);      
+    };
+
+    
   return (
-    <table>
+    <div>
+      <table>
       <thead>
         <tr>
           <th>Item</th>
@@ -51,12 +66,24 @@ function TableProducts() {
             <td
               data-testid={ `customer_checkout__element-order-table-remove-${i}` }
             >
-              <button type="button">Remover</button>
+              <button
+                type="button"
+                id={item.id}
+                onClick={ (e) => removeItem(e.target.id) }
+              >
+                Remover
+              </button>
             </td>
           </tr>
         ))}
       </tbody>
     </table>
+    <h2
+      data-testid="customer_checkout__element-order-total-price"
+    >
+      {Number(totalPrice).toFixed(2).replace('.', ',')}
+    </h2>
+    </div>
   );
 }
 
