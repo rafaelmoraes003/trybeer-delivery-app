@@ -1,12 +1,15 @@
 const { SaleProduct } = require('../database/models');
 const { CustomError } = require('../utils/CustomError');
-// const { saleProductSchema } = require('../schemas/saleProduct');
-// const { validateBody } = require('../utils/validateBody');
+const { validateBody } = require('../utils/validateBody');
+const { saleProductSchema } = require('../schemas/saleProduct');
+const { validateSaleProduct } = require('../utils/validateSaleProduct');
 
-const notFound = 'Product not Found';
+const notFound = 'SaleProduct not Found';
 
 const create = async (saleProductData) => {
+  const { saleId, productId } = saleProductData;
   // validateBody(saleProductData, saleProductSchema);
+  await validateSaleProduct(saleId, productId);
   const newSale = await SaleProduct.bulkCreate(saleProductData);
   return newSale;
 };
@@ -22,7 +25,7 @@ const getById = async (saleId) => {
 };
 
 const update = async (saleId, saleProductData) => {
-  // validateBody(saleProductData, saleProductSchema);
+  validateBody(saleProductData, saleProductSchema);
   const updatedSaleProduct = await SaleProduct.update(
   { saleProductData }, { where: { saleId } },
 );
