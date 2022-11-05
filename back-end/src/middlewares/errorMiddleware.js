@@ -1,8 +1,6 @@
 const errorMiddleware = (err, _req, res, _next) => {
-  console.error(err);
-
   if (!err.statusCode) {
-    return res.status(500).json({ error: 'Server Error' });
+    err.statusCode = 500;
   }
 
   const { message, statusCode } = err;
