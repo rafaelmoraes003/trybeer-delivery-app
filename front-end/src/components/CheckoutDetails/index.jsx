@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createSaleProductRequest } from '../../utils/createSaleProductRequest';
 import createSaleRequest from '../../utils/createSaleRequest';
 import getTotalPrice from '../../utils/getTotalPrice';
 import InputWithLabel from '../InputWithLabel/index';
@@ -29,10 +30,10 @@ function CheckoutDetails() {
     const body = await createSaleRequest({
       userData, totalPrice, address, number, sellerId,
     });
-    console.log(body);
     if (body.error) {
       setErrorMessage(true);
     } else {
+      await createSaleProductRequest(body.id);
       navigateTo(`/customer/orders/${body.id}`);
     }
   };
