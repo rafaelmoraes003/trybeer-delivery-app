@@ -11,8 +11,6 @@ const createSaleRequest = async ({ userData, sellerId, totalPrice, address, numb
       totalPrice,
       deliveryAddress: address,
       deliveryNumber: number,
-      saleDate: new Date(),
-      status: 'Pendente',
     }),
   });
 
