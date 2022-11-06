@@ -12,4 +12,4 @@ const createSaleProductRequest = async (saleId) => {
   });
 };
 
-module.exports = { createSaleProductRequest };
+export default createSaleProductRequest;

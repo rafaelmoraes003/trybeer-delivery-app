@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createSaleProductRequest } from '../../utils/createSaleProductRequest';
+import createSaleProductRequest from '../../utils/createSaleProductRequest';
 import createSaleRequest from '../../utils/createSaleRequest';
 import getTotalPrice from '../../utils/getTotalPrice';
 import InputWithLabel from '../InputWithLabel/index';
@@ -83,7 +83,7 @@ function CheckoutDetails() {
         </button>
         {errorMessage && (
           <p>
-            Dados Inválidos
+            Dados Inválidos.
           </p>
         )}
       </div>
