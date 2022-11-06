@@ -1,10 +1,9 @@
 const saleService = require('../services/sale');
-const userService = require('../services/user');
 
 const create = async (req, res, next) => {
   try {
-    const newSale = await saleService.create(req.body);
-    return res.status(201).json(newSale);
+    const { code, data } = await saleService.create(req.body);
+    return res.status(code).json(data);
   } catch (error) {
     next(error);
   }
@@ -12,28 +11,28 @@ const create = async (req, res, next) => {
 
 const getAll = async (req, res, next) => {
   try {
-    const allSales = await saleService.getAll();
-    return res.status(200).json(allSales);
+    const { code, data } = await saleService.getAll();
+    return res.status(code).json(data);
   } catch (error) {
     next(error);
   }
 };
 
-const getAllSellers = async (req, res, next) => {
+const getAllBySellerId = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const { code, data } = await userService.getSellers();
-    const allSales = await saleService.getAllBySellers(data);
-    return res.status(code).json(allSales);
+    const { code, data } = await saleService.getAllBySellerId(id);
+    return res.status(code).json(data);
   } catch (error) {
     next(error);
   }
 };
 
-const getAllUsers = async (req, res, next) => {
+const getAllByUserId = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const { data } = await userService.getAll();
-    const allSales = await saleService.getAllByUsers(data);
-    return res.status(200).json(allSales);
+    const { code, data } = await saleService.getAllByUserId(id);
+    return res.status(code).json(data);
   } catch (error) {
     next(error);
   }
@@ -42,8 +41,8 @@ const getAllUsers = async (req, res, next) => {
 const getById = async (req, res, next) => {
   const { id } = req.params;
   try {
-    const sale = await saleService.getById(id);
-    return res.status(200).json(sale);
+    const { code, data } = await saleService.getById(id);
+    return res.status(code).json(data);
   } catch (error) {
     next(error);
   }
@@ -70,4 +69,4 @@ const destroy = async (req, res, next) => {
   }
 };
 
-module.exports = { create, getAll, getAllSellers, getAllUsers, getById, update, destroy };
+module.exports = { create, getAll, getAllBySellerId, getAllByUserId, getById, update, destroy };
