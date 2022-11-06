@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/InputWithLabel/index';
 
@@ -7,6 +7,11 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [invalidUserMessage, setInvalidUserMessage] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) navigateTo(`/${user.role}/products`);
+  }, [navigateTo]);
 
   const validateFields = () => {
     const MIN_PASSWORD_LENGTH = 6;
