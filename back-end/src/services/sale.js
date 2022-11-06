@@ -9,27 +9,28 @@ const notFound = 'Product not Found';
 const create = async (saleData) => {
   validateBody(saleData, saleSchema);
   const newSale = await Sale.create(saleData);
-  return newSale;
+  return { code: 201, data: newSale.dataValues };
 };
 
 const getAll = async () => {
-  const allSales = await Sale.findAll();
-  return allSales;
+  const sales = await Sale.findAll();
+  return { code: 200, data: sales };
 };
 
-const getAllBySellers = async (sellerId) => {
-  const sales = await Sale.findAll({ where: { sellerId } });
-  return sales;
+const getAllBySellerId = async (sellerId) => {
+  const salesBySeller = await Sale.findAll({ where: { sellerId } });
+  return { code: 200, data: salesBySeller };
 }; 
 
-const getAllByUsers = async (userId) => {
-  const sales = await Sale.findAll({ where: { userId } });
-  return sales;
+const getAllByUserId = async (userId) => {
+  const salesByUser = await Sale.findAll({ where: { userId } });
+  return { code: 200, data: salesByUser };
 }; 
 
 const getById = async (id) => {
-  const product = await Sale.findOne({ where: { id } });
-  return product;
+  const sale = await Sale.findByPk(id);
+  if (!sale) throw new CustomError(notFound, 404);
+  return { code: 200, data: sale };
 };
 
 const update = async (id, saleData) => {
@@ -49,14 +50,22 @@ const update = async (id, saleData) => {
   },
   { where: { id } },
 );
-  if (!updatedProduct) throw new CustomError(notFound, 400);
+  if (!updatedProduct) throw new CustomError(notFound, 404);
   return updatedProduct;
 };
 
 const destroy = async (id) => {
   const deletedProduct = await Sale.destroy({ where: { id } });
-  if (!deletedProduct) throw new CustomError(notFound, 400);
+  if (!deletedProduct) throw new CustomError(notFound, 404);
   return deletedProduct;
 };
 
-module.exports = { create, getAll, getAllBySellers, getAllByUsers, getById, update, destroy };
+module.exports = { 
+  create,
+  getAll,
+  getAllBySellerId,
+  getAllByUserId,
+  getById,
+  update,
+  destroy,
+};
