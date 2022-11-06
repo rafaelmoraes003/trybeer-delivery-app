@@ -5,7 +5,7 @@ const loginRoute = require('../routes/login');
 const userRoute = require('../routes/user');
 const productRoute = require('../routes/product');
 const saleRoute = require('../routes/sale');
-const saleProductRoute = require('../routes/saleProduct');
+const saleProductsRoute = require('../routes/saleProducts');
 
 const { errorMiddleware } = require('../middlewares/errorMiddleware');
 
@@ -21,7 +21,7 @@ app.use('/login', loginRoute);
 app.use('/products', productRoute);
 app.use('/users', userRoute);
 app.use('/sales', saleRoute);
-app.use('/salesProducts', saleProductRoute);
+app.use('/sales-products', saleProductsRoute);
 
 app.use(errorMiddleware);
 

@@ -48,9 +48,11 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
         field: 'sale_date',
+        defaultValue: Sequelize.NOW
       },  
       status: {
-        type: Sequelize.STRING, 
+        type: Sequelize.STRING,
+        defaultValue: 'Pendente',
         allowNull: false,
       }
     },

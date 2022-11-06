@@ -6,8 +6,8 @@ const saleSchema = joi.object({
   totalPrice: joi.number().positive().required(),
   deliveryAddress: joi.string().min(5).required(),
   deliveryNumber: joi.number().required(),
-  saleDate: joi.date().required(),
-  status: joi.string().required(),
+  saleDate: joi.date(),
+  status: joi.string(),
 });
 
 module.exports = { saleSchema };

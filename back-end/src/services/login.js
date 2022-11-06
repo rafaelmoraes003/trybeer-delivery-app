@@ -21,7 +21,8 @@ const login = async (userData) => {
   }
 
   const token = createToken(user);
-  return { code: 200, data: { name: user.name, role: user.role, email: user.email, token } };
+  const { id, name, email: userEmail, role } = user;
+  return { code: 200, data: { id, name, role, email: userEmail, token } };
 };  
 
 module.exports = { login };

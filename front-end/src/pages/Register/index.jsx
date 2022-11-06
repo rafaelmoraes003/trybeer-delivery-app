@@ -40,6 +40,7 @@ function Register() {
     });
 
     const body = await response.json();
+    delete body.password;
 
     if (body.error) {
       setLoginFailed(true);

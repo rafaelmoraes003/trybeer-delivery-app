@@ -1,9 +1,9 @@
 const joi = require('joi');
 
-const saleProductSchema = joi.object({
-  saleId: joi.number().positive().required(),
-  productId: joi.number().positive().required(),
-  quantity: joi.number().positive().required(),
+const saleProductSChema = joi.array().items({
+  saleId: joi.number().required(),
+  productId: joi.number().required(),
+  quantity: joi.number().required(),
 });
 
-module.exports = { saleProductSchema };
+module.exports = { saleProductSChema };
