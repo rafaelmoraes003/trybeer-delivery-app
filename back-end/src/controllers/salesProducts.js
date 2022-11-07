@@ -9,6 +9,16 @@ const getAll = async (req, res, next) => {
   }
 };
 
+const getBySaleId = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const { code, data } = await saleProductsService.getBySaleId(id);
+    return res.status(code).json(data);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const create = async (req, res, next) => {
   try {
     const { code, data } = await saleProductsService.create(req.body);
@@ -39,4 +49,4 @@ const destroy = async (req, res, next) => {
   }
 };
 
-module.exports = { create, getAll, update, destroy };
+module.exports = { create, getAll, update, destroy, getBySaleId };
