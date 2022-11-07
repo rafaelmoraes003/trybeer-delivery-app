@@ -13,14 +13,14 @@ function OrderCard({ id, status, saleDate, totalPrice, role, loopIndex }) {
           {`Pedido ${loopIndex + 1}`}
         </h3>
         <h3
-          data-testid={ `customer_orders__element-delivery-status-${id}` }
-        >
-          {status}
-        </h3>
-        <h3
           data-testid={ `customer_orders__element-order-date-${id}` }
         >
           {new Date(saleDate).toLocaleDateString('pt-BR')}
+        </h3>
+        <h3
+          data-testid={ `customer_orders__element-delivery-status-${id}` }
+        >
+          {status}
         </h3>
         <h3
           data-testid={ `customer_orders__element-card-price-${id}` }

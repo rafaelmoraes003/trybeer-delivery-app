@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import createSaleProductRequest from '../../utils/createSaleProductRequest';
 import createSaleRequest from '../../utils/createSaleRequest';
 import getTotalPrice from '../../utils/getTotalPrice';
-import InputWithLabel from '../InputWithLabel/index';
+import InputWithLabel from '../InputWithLabel';
 
 function CheckoutDetails() {
   const navigateTo = useNavigate();
