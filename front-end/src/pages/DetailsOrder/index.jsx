@@ -3,7 +3,6 @@ import Header from '../../components/OrderDetails/infoOrder';
 import NavBar from '../../components/NavBar';
 import OrderTable from '../../components/OrderDetails/orderTable';
 
-
 function DetailsOrder() {
   return (
     <main>
