@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/InputWithLabel/index';
+import loginRoutes from '../../utils/loginRoutes';
 
 function Login() {
   const navigateTo = useNavigate();
@@ -10,7 +11,7 @@ function Login() {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user) navigateTo(`/${user.role}/products`);
+    if (user) navigateTo(loginRoutes[user.role]);
   }, [navigateTo]);
 
   const validateFields = () => {
@@ -34,7 +35,7 @@ function Login() {
       setInvalidUserMessage(true);
     } else {
       localStorage.setItem('user', JSON.stringify(body));
-      navigateTo(`/${body.role}/products`);
+      navigateTo(loginRoutes[body.role]);
     }
   };
 
