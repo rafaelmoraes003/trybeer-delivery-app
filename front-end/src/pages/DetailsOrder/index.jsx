@@ -20,7 +20,7 @@ function DetailsOrder() {
 
   return (
     <main>
-      <NavBar />
+      <NavBar showProducts />
       {orderDetails && salesProducts.length && (
         <>
           <OrderInfo
