@@ -5,6 +5,7 @@ import Products from './pages/Products';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
+import DetailsOrder from './pages/DetailsOrder';
 
 function Routes() {
   return (
@@ -15,6 +16,7 @@ function Routes() {
       <Route exact path="/customer/products" element={ <Products /> } />
       <Route exact path="/customer/checkout" element={ <Checkout /> } />
       <Route exact path="/customer/orders" element={ <Orders /> } />
+      <Route exact path="/customer/orders/:id" element={ <DetailsOrder /> } />
     </Switch>
   );
 }
