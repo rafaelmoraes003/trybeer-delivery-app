@@ -1,6 +1,6 @@
-const getOrderDetails = async (endpoint, orderId, setState) => {
+const getOrderDetails = async (endpoint, id, setState) => {
   const response = await
-  fetch(`http://localhost:3001/${endpoint}/${orderId}`);
+  fetch(`http://localhost:3001/${endpoint}/${id}`);
   const data = await response.json();
   setState(data);
 };
