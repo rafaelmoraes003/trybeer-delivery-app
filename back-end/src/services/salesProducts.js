@@ -1,4 +1,4 @@
-const { SaleProduct, Product, Sale, sequelize } = require('../database/models');
+const { SaleProduct, sequelize } = require('../database/models');
 const { saleProductSChema } = require('../schemas/saleProduct');
 const { validateBody } = require('../utils/validateBody');
 
@@ -20,7 +20,7 @@ const getBySaleId = async (saleId) => {
     INNER JOIN products AS p
     ON p.id = sp.product_id
     WHERE sp.sale_id = ?
-  `, { replacements: [saleId] })
+  `, { replacements: [saleId] });
   return { code: 201, data: saleProducts[0] };
 };
 
