@@ -15,4 +15,17 @@ const create = async (saleProductList) => {
   return { code: 201, data: newSaleProducts };
 };
 
-module.exports = { create, getAll };
+const update = async (saleId, saleProductData) => {
+  validateBody(saleProductData, saleProductSChema);
+  const updatedSaleProduct = await SaleProduct.update(
+  { saleProductData }, { where: { saleId } },
+);
+  return { code: 200, data: updatedSaleProduct };
+};
+
+const destroy = async (saleId) => {
+  const deletedSaleProduct = await SaleProduct.destroy({ where: { saleId } });
+  return { code: 204, data: deletedSaleProduct };
+};
+
+module.exports = { create, getAll, update, destroy };
