@@ -18,4 +18,25 @@ const create = async (req, res, next) => {
   }
 };
 
-module.exports = { create, getAll };
+const update = async (req, res, next) => {
+  try {
+    const { body } = req;
+    const { id } = req.params;
+    const { code, data } = await saleProductsService.update(id, body);
+    return res.status(code).json(data);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const destroy = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { code, data } = await saleProductsService.destroy(id);
+    return res.status(code).json(data);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { create, getAll, update, destroy };

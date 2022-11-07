@@ -4,7 +4,7 @@ const { saleSchema } = require('../schemas/sale');
 const { CustomError } = require('../utils/CustomError');
 const { validateSale } = require('../utils/validateSale');
 
-const notFound = 'Product not Found';
+const notFound = 'Sale not Found';
 
 const create = async (saleData) => {
   validateBody(saleData, saleSchema);
