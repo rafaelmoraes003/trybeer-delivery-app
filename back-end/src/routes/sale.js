@@ -10,5 +10,6 @@ router.get('/seller/:id', saleController.getAllBySellerId);
 router.get('/customer/:id', saleController.getAllByUserId);
 router.get('/:id', saleController.getById);
 router.put('/:id', saleController.update);
+router.patch('/:id', saleController.updateSaleStatus);
 router.delete('/:id', saleController.destroy);
 module.exports = router;
