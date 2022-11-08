@@ -1,5 +1,5 @@
 const { User } = require('../database/models');
-const { CustomError } = require('../utils/vaCustomError');
+const { CustomError } = require('../utils/CustomError');
 const { validateBody } = require('../utils/validations/validateBody');
 const { decryptPassword } = require('../utils/descryptPassword');
 const { loginSchema } = require('../schemas/login');
