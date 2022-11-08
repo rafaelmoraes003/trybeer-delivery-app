@@ -7,7 +7,7 @@ import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
 import DetailsOrder from './pages/DetailsOrder';
 import SellerOrders from './pages/SellerOrders';
-import SellerOrderDetails from './pages/SellerOrder';
+import SellerOrderDetails from './pages/SellerOrderDetails/index';
 
 function Routes() {
   return (
