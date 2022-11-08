@@ -1,24 +1,22 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-function SellerInfo() {
-  // const index = 1;
+function SellerInfo({ id, saleDate, status }) {
   return (
     <div>
       <p data-testid="seller_order_details__element-order-details-label-order-id">
-        {/* {`Pedido ${String(id).padStart(2 + 1, 0)}`} */}
+        {`Pedido ${String(id).padStart(2 + 1, 0)}`}
       </p>
       <p data-testid="seller_order_details__element-order-details-label-order-date">
-        {/* { new Date(saleDate).toLocaleDateString('pt-BR') } */}
+        { new Date(saleDate).toLocaleDateString('pt-BR') }
       </p>
       <p
         data-testid="seller_order_details__element-order-details-label-delivery-status"
       >
-        {/* test         */}
+        { status }
       </p>
       <button
         type="button"
         data-testid="seller_order_details__button-preparing-check"
-        disabled
       >
         Preparar Pedido
       </button>
@@ -35,11 +33,10 @@ function SellerInfo() {
   );
 }
 
-// SellerOrder.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   seller: PropTypes.string.isRequired,
-//   saleDate: PropTypes.string.isRequired,
-//   status: PropTypes.string.isRequired,
-// };
+SellerInfo.propTypes = {
+  id: PropTypes.number.isRequired,
+  saleDate: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+};
 
 export default SellerInfo;
