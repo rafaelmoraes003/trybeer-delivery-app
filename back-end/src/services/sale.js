@@ -1,4 +1,4 @@
-const { Sale, User, Product } = require('../database/models');
+const { Sale } = require('../database/models');
 const { validateBody } = require('../utils/validateBody');
 const { saleSchema } = require('../schemas/sale');
 const { CustomError } = require('../utils/CustomError');
@@ -29,7 +29,7 @@ const getAllByUserId = async (userId) => {
 }; 
 
 const getById = async (id, showProducts) => {
-  const sale = await getSales('findOne', { id: id }, showProducts);
+  const sale = await getSales('findOne', { id }, showProducts);
   if (!sale) throw new CustomError(notFound, 404);
   return { code: 200, data: sale };
 };

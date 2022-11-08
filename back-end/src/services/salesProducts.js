@@ -1,4 +1,4 @@
-const { SaleProduct, sequelize, Product } = require('../database/models');
+const { SaleProduct } = require('../database/models');
 const { saleProductSChema } = require('../schemas/saleProduct');
 const { validateBody } = require('../utils/validateBody');
 
@@ -10,8 +10,8 @@ const getAll = async (saleProductList) => {
 
 const getBySaleId = async (saleId) => {
   const saleProducts = await SaleProduct.findAll({
-    where: { saleId }
-  })
+    where: { saleId },
+  });
   return { code: 201, data: saleProducts };
 };
 
