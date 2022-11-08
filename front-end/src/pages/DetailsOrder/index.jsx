@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import OrderInfo from '../../components/OrderInfo/index';
 import OrderTable from '../../components/OrderTable/index';
-import getOrderDetails from '../../utils/getOrderDetails';
+import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
 
 function DetailsOrder() {
   const [orderDetails, setOrderDetails] = useState({});
+  const { role } = JSON.parse(localStorage.getItem('user'));
   const { id: saleId } = useParams();
 
   useEffect(() => {
     const getOrder = async () => {
-      await getOrderDetails('sales', saleId, setOrderDetails);
+      await getDataFromEndpoint(`/sales/${saleId}?showProducts=true`, setOrderDetails);
     };
     getOrder();
   }, [saleId]);
@@ -30,6 +31,7 @@ function DetailsOrder() {
 
           <OrderTable
             productsList={ orderDetails.products }
+            role={ role }
           />
         </>
       )}
