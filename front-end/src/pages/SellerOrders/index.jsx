@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import NavBar from '../../components/NavBar';
 import OrderCard from '../../components/OrderCard';
-import getOrderDetails from '../../utils/getOrderDetails';
+import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
 
 function SellerOrders() {
   const [orders, setOrders] = useState([]);
@@ -9,10 +9,10 @@ function SellerOrders() {
 
   useEffect(() => {
     const getOrders = async () => {
-      await getOrderDetails('sales/seller', user.id, setOrders);
+      await getDataFromEndpoint(`/sales/seller/${user.id}`, setOrders);
     };
     getOrders();
-  }, [user]);
+  }, [user.id]);
 
   return (
     <div>
