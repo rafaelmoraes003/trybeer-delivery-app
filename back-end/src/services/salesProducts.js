@@ -1,6 +1,6 @@
 const { SaleProduct } = require('../database/models');
 const { saleProductSChema } = require('../schemas/saleProduct');
-const { validateBody } = require('../utils/validateBody');
+const { validateBody } = require('../utils/validations/validateBody');
 
 const getAll = async (saleProductList) => {
   validateBody(saleProductList, saleProductSChema);

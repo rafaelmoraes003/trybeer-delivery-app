@@ -1,7 +1,7 @@
 const { User } = require('../database/models');
 const { decryptPassword } = require('../utils/descryptPassword');
-const { validateBody } = require('../utils/validateBody');
-const { validateUser } = require('../utils/validateUser');
+const { validateBody } = require('../utils/validations/validateBody');
+const { validateUser } = require('../utils/validations/validateUser');
 const { userSchema } = require('../schemas/user');
 const { createToken } = require('../utils/createToken');
 

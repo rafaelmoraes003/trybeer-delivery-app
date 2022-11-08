@@ -1,8 +1,8 @@
 const { CustomError } = require('puppeteer');
 const { Product } = require('../database/models');
-const { validateBody } = require('../utils/validateBody');
+const { validateBody } = require('../utils/validations/validateBody');
 const { productSchema } = require('../schemas/product');
-const { validateProduct, validateProductExist } = require('../utils/validateProduct');
+const { validateProduct, validateProductExist } = require('../utils/validations/validateProduct');
 
 const notFound = 'Product not Found';
 
