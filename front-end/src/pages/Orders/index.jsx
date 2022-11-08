@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react';
 import OrderCard from '../../components/OrderCard';
+import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
 
 function Orders() {
-  const { role } = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
     const getUserSales = async () => {
-      const { id } = JSON.parse(localStorage.getItem('user'));
-      const response = await fetch(`http://localhost:3001/sales/customer/${id}`);
-      const data = await response.json();
-      setSales(data);
+      await getDataFromEndpoint(`/sales/customer/${user.id}`, setSales);
     };
     getUserSales();
-  }, []);
+  }, [user.id]);
 
   return (
     <div>
@@ -24,7 +22,7 @@ function Orders() {
           status={ sale.status }
           saleDate={ sale.saleDate }
           totalPrice={ sale.totalPrice }
-          role={ role }
+          role={ user.role }
           loopIndex={ i }
         />
       ))}
