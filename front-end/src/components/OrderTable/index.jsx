@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-function OrderTable({ productsList = [] }) {
+function OrderTable({ productsList = [], role }) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -28,33 +28,33 @@ function OrderTable({ productsList = [] }) {
             <tr key={ i }>
               <td
                 data-testid={
-                  `customer_order_details__element-order-table-item-number-${i}`
+                  `${role}_order_details__element-order-table-item-number-${i}`
                 }
               >
                 {i + 1}
               </td>
               <td
-                data-testid={ `customer_order_details__element-order-table-name-${i}` }
+                data-testid={ `${role}_order_details__element-order-table-name-${i}` }
               >
                 {item.name}
               </td>
               <td
                 data-testid={
-                  `customer_order_details__element-order-table-quantity-${i}`
+                  `${role}_order_details__element-order-table-quantity-${i}`
                 }
               >
                 {item.SaleProduct.quantity}
               </td>
               <td
                 data-testid={
-                  `customer_order_details__element-order-table-unit-price-${i}`
+                  `${role}_order_details__element-order-table-unit-price-${i}`
                 }
               >
                 {String(item.price).replace('.', ',')}
               </td>
               <td
                 data-testid={
-                  `customer_order_details__element-order-table-sub-total-${i}`
+                  `${role}_order_details__element-order-table-sub-total-${i}`
                 }
               >
                 {
@@ -67,7 +67,7 @@ function OrderTable({ productsList = [] }) {
         </tbody>
       </table>
 
-      <p data-testid="customer_order_details__element-order-total-price">
+      <p data-testid={ `${role}_order_details__element-order-total-price` }>
         {`Total: R$ ${Number(totalPrice).toFixed(2).replace('.', ',')}`}
       </p>
     </div>
@@ -83,6 +83,7 @@ OrderTable.propTypes = {
       quantity: PropTypes.number.isRequired,
     }).isRequired,
   })).isRequired,
+  role: PropTypes.string.isRequired,
 };
 
 export default OrderTable;
