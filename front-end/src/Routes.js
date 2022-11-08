@@ -7,6 +7,7 @@ import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
 import DetailsOrder from './pages/DetailsOrder';
 import SellerOrders from './pages/SellerOrders';
+import SellerOrderDetails from './pages/SellerOrder';
 
 function Routes() {
   return (
@@ -19,6 +20,7 @@ function Routes() {
       <Route exact path="/customer/orders" element={ <Orders /> } />
       <Route exact path="/customer/orders/:id" element={ <DetailsOrder /> } />
       <Route exact path="/seller/orders" element={ <SellerOrders /> } />
+      <Route exact path="/seller/orders/:id" element={ <SellerOrderDetails /> } />
     </Switch>
   );
 }
