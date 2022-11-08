@@ -7,21 +7,19 @@ import getOrderDetails from '../../utils/getOrderDetails';
 
 function DetailsOrder() {
   const [orderDetails, setOrderDetails] = useState({});
-  const [salesProducts, setSalesProducts] = useState([]);
-  const { id: orderId } = useParams();
+  const { id: saleId } = useParams();
 
   useEffect(() => {
     const getOrder = async () => {
-      await getOrderDetails('sales', orderId, setOrderDetails);
-      await getOrderDetails('sales-products', orderId, setSalesProducts);
+      await getOrderDetails('sales', saleId, setOrderDetails);
     };
     getOrder();
-  }, [orderId]);
+  }, [saleId]);
 
   return (
     <main>
       <NavBar showProducts />
-      {orderDetails && salesProducts.length && (
+      {Object.keys(orderDetails).length && (
         <>
           <OrderInfo
             id={ orderDetails.id }
@@ -31,7 +29,7 @@ function DetailsOrder() {
           />
 
           <OrderTable
-            productsList={ salesProducts }
+            productsList={ orderDetails.products }
           />
         </>
       )}
