@@ -1,4 +1,4 @@
-const { CustomError } = require('./CustomError');
+const { CustomError } = require('../CustomError');
 
 const validateBody = (obj, joiSchema) => {
   const { error } = joiSchema.validate(obj);
