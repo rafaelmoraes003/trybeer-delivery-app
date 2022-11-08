@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-function OrderTable({ productsList }) {
+function OrderTable({ productsList = [] }) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const price = productsList
-      .reduce((acc, curr) => (Number(curr.productPrice) * curr.quantity) + acc, 0);
+      .reduce((acc, curr) => (Number(curr.price) * curr.SaleProduct.quantity) + acc, 0);
     setTotalPrice(price);
   }, [productsList]);
 
@@ -36,28 +36,31 @@ function OrderTable({ productsList }) {
               <td
                 data-testid={ `customer_order_details__element-order-table-name-${i}` }
               >
-                {item.productName}
+                {item.name}
               </td>
               <td
                 data-testid={
                   `customer_order_details__element-order-table-quantity-${i}`
                 }
               >
-                {item.quantity}
+                {item.SaleProduct.quantity}
               </td>
               <td
                 data-testid={
                   `customer_order_details__element-order-table-unit-price-${i}`
                 }
               >
-                {String(item.productPrice).replace('.', ',')}
+                {String(item.price).replace('.', ',')}
               </td>
               <td
                 data-testid={
                   `customer_order_details__element-order-table-sub-total-${i}`
                 }
               >
-                {(Number(item.productPrice) * item.quantity).toFixed(2).replace('.', ',')}
+                {
+                  (Number(item.price) * item.SaleProduct.quantity)
+                    .toFixed(2).replace('.', ',')
+                }
               </td>
             </tr>
           ))}
@@ -73,11 +76,12 @@ function OrderTable({ productsList }) {
 
 OrderTable.propTypes = {
   productsList: PropTypes.arrayOf(PropTypes.shape({
-    saleId: PropTypes.number.isRequired,
-    productId: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
-    productName: PropTypes.string.isRequired,
-    productPrice: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    SaleProduct: PropTypes.shape({
+      quantity: PropTypes.number.isRequired,
+    }).isRequired,
   })).isRequired,
 };
 

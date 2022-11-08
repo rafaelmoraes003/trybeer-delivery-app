@@ -1,4 +1,4 @@
-const { SaleProduct, sequelize } = require('../database/models');
+const { SaleProduct } = require('../database/models');
 const { saleProductSChema } = require('../schemas/saleProduct');
 const { validateBody } = require('../utils/validateBody');
 
@@ -9,19 +9,10 @@ const getAll = async (saleProductList) => {
 };
 
 const getBySaleId = async (saleId) => {
-  const saleProducts = await sequelize.query(`
-    SELECT 
-    sp.sale_id AS saleId, 
-    sp.product_id AS productId,
-    sp.quantity AS quantity,
-    p.name AS productName, 
-    p.price AS productPrice
-    from sales_products AS sp
-    INNER JOIN products AS p
-    ON p.id = sp.product_id
-    WHERE sp.sale_id = ?
-  `, { replacements: [saleId] });
-  return { code: 201, data: saleProducts[0] };
+  const saleProducts = await SaleProduct.findAll({
+    where: { saleId },
+  });
+  return { code: 201, data: saleProducts };
 };
 
 const create = async (saleProductList) => {

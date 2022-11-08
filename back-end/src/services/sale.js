@@ -1,8 +1,9 @@
-const { Sale, User } = require('../database/models');
+const { Sale } = require('../database/models');
 const { validateBody } = require('../utils/validateBody');
 const { saleSchema } = require('../schemas/sale');
 const { CustomError } = require('../utils/CustomError');
 const { validateSale } = require('../utils/validateSale');
+const { getSales } = require('../utils/getSales');
 
 const notFound = 'Sale not Found';
 
@@ -27,21 +28,8 @@ const getAllByUserId = async (userId) => {
   return { code: 200, data: salesByUser };
 }; 
 
-const getById = async (id) => {
-  const sale = await Sale.findByPk(id, {
-    include: [
-      {
-        model: User,
-        as: 'user',
-        attributes: { exclude: ['password', 'id', 'email', 'role'] },
-      },
-      {
-        model: User,
-        as: 'seller',
-        attributes: { exclude: ['password', 'id', 'email', 'role'] },
-      },
-    ],
-  });
+const getById = async (id, showProducts) => {
+  const sale = await getSales('findOne', { id }, showProducts);
   if (!sale) throw new CustomError(notFound, 404);
   return { code: 200, data: sale };
 };

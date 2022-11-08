@@ -40,8 +40,9 @@ const getAllByUserId = async (req, res, next) => {
 
 const getById = async (req, res, next) => {
   const { id } = req.params;
+  const { showProducts } = req.query;
   try {
-    const { code, data } = await saleService.getById(id);
+    const { code, data } = await saleService.getById(id, showProducts);
     return res.status(code).json(data);
   } catch (error) {
     next(error);
