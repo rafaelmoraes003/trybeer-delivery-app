@@ -61,6 +61,11 @@ const destroy = async (id) => {
   return deletedProduct;
 };
 
+const updateSaleStatus = async (id, status) => {
+  await Sale.update({ status }, { where: { id } });
+  return { code: 204 };
+};
+
 module.exports = { 
   create,
   getAll,
@@ -69,4 +74,5 @@ module.exports = {
   getById,
   update,
   destroy,
+  updateSaleStatus,
 };

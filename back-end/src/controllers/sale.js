@@ -60,6 +60,17 @@ const update = async (req, res, next) => {
   }
 };
 
+const updateSaleStatus = async (req, res, next) => {
+  const { status } = req.body;
+  const { id } = req.params;
+  try {
+    const { code } = await saleService.updateSaleStatus(id, status);
+    return res.status(code).end();
+  } catch (error) {
+    next(error);
+  }
+};
+
 const destroy = async (req, res, next) => {
   const { id } = req.params;
   try {
@@ -70,4 +81,12 @@ const destroy = async (req, res, next) => {
   }
 };
 
-module.exports = { create, getAll, getAllBySellerId, getAllByUserId, getById, update, destroy };
+module.exports = { create,
+  getAll,
+  getAllBySellerId,
+  getAllByUserId,
+  getById,
+  update,
+  destroy,
+  updateSaleStatus, 
+};
