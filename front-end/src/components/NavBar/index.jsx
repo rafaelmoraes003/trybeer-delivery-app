@@ -1,9 +1,9 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
 
-function NavBar() {
+function NavBar({ showProducts }) {
   const navigateTo = useNavigate();
-  const { name } = JSON.parse(localStorage.getItem('user'));
+  const { name, role } = JSON.parse(localStorage.getItem('user'));
 
   const logout = () => {
     localStorage.removeItem('user');
@@ -12,20 +12,22 @@ function NavBar() {
 
   return (
     <div>
-      <button
-        type="button"
-        data-testid="customer_products__element-navbar-link-products"
-        onClick={ () => { navigateTo('/customer/products'); } }
-      >
-        PRODUTOS
+      {showProducts && (
+        <button
+          type="button"
+          data-testid="customer_products__element-navbar-link-products"
+          onClick={ () => { navigateTo('/customer/products'); } }
+        >
+          PRODUTOS
 
-      </button>
+        </button>
+      )}
       <button
         type="button"
         data-testid="customer_products__element-navbar-link-orders"
-        onClick={ () => { navigateTo('/customer/orders'); } }
+        onClick={ () => { navigateTo(`/${role}/orders`); } }
       >
-        MEUS PEDIDOS
+        { showProducts ? 'MEUS PEDIDOS' : 'PEDIDOS' }
       </button>
 
       <div
@@ -45,5 +47,9 @@ function NavBar() {
     </div>
   );
 }
+
+NavBar.propTypes = {
+  showProducts: PropTypes.bool.isRequired,
+};
 
 export default NavBar;

@@ -19,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       field: 'url_image'
     }
   },
-  
-  {
+  { 
     underscored: true,
     timestamps: false,
     tableName: 'products'
