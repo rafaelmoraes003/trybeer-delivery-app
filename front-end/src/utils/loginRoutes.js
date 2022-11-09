@@ -1,7 +1,7 @@
 const loginRoutes = {
   customer: '/customer/products',
   seller: '/seller/orders',
-  administrator: '/administrator/gerencia',
+  administrator: '/admin/manage',
 };
 
 export default loginRoutes;

@@ -16,7 +16,7 @@ function SellerOrders() {
 
   return (
     <div>
-      <NavBar showProducts={ false } />
+      <NavBar showProducts={ false } showOrders />
       {orders.map((order, i) => (
         <OrderCard
           key={ i }

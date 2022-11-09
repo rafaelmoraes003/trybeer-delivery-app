@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import NavBar from '../../components/NavBar';
 import OrderCard from '../../components/OrderCard';
 import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
 
@@ -15,6 +16,7 @@ function Orders() {
 
   return (
     <div>
+      <NavBar showProducts showOrders />
       {sales.map((sale, i) => (
         <OrderCard
           key={ sale.id }

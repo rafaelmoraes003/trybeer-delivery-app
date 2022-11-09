@@ -6,7 +6,7 @@ import TableProducts from '../../components/TableProducts';
 function Checkout() {
   return (
     <main>
-      <NavBar showProducts />
+      <NavBar showProducts showOrders />
       <h1>Finalizar Pedido</h1>
       <TableProducts />
       <CheckoutDetails />

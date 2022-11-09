@@ -19,7 +19,7 @@ function SellerOrderDetails() {
 
   return (
     <div>
-      <NavBar showProducts={ false } />
+      <NavBar showProducts={ false } showOrders />
       {Object.keys(order).length && (
         <>
           <SellerInfo
