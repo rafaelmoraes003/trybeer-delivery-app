@@ -1,6 +1,22 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 function OrderInfo({ id, seller, saleDate, status }) {
+  const [orderStatus, setOrderStatus] = useState(status);
+
+  const changeStatusClick = async (newStatus) => {
+    setOrderStatus(newStatus);
+    await fetch(`http://localhost:3001/sales/${id}`, {
+      method: 'PATCH',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify({
+        status: newStatus,
+      }),
+    });
+  };
+
   const index = 1;
   return (
     <div>
@@ -18,14 +34,14 @@ function OrderInfo({ id, seller, saleDate, status }) {
           `customer_order_details__element-order-details-label-delivery-status${index}`
         }
       >
-        { status }
+        { orderStatus }
       </p>
 
       <button
         type="button"
-        // data-testid="customer_order_details__button-delivery-check"
         data-testid="customer_order_details__button-delivery-check"
-        disabled
+        disabled={ orderStatus !== 'Em Trânsito' }
+        onClick={ () => changeStatusClick('Entregue') }
       >
         Marcar como entregue
       </button>

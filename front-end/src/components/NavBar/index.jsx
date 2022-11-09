@@ -31,7 +31,7 @@ function NavBar({ showProducts }) {
       </button>
 
       <div
-        data-testid="customer_products__element-navbar-user-full-name"
+        data-testid={ `${role}-navbar-user-full-name` }
       >
         { name }
       </div>
