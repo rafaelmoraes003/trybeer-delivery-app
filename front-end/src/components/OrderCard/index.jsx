@@ -5,7 +5,7 @@ function OrderCard({ id, status, saleDate, totalPrice, role, loopIndex }) {
   return (
     <Link to={ `/${role}/orders/${id}` }>
       <div
-        style={ { border: '2px solid black', width: 250 } }
+        style={ { border: '2px solid black', width: 250, marginTop: 20 } }
       >
         <h3
           data-testid={ `${role}_orders__element-order-id-${id}` }
