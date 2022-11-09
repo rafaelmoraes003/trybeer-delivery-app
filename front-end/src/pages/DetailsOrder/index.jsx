@@ -19,7 +19,7 @@ function DetailsOrder() {
 
   return (
     <main>
-      <NavBar showProducts />
+      <NavBar showProducts showOrders />
       {Object.keys(orderDetails).length && (
         <>
           <OrderInfo

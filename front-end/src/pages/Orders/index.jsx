@@ -16,7 +16,7 @@ function Orders() {
 
   return (
     <div>
-      <NavBar showProducts />
+      <NavBar showProducts showOrders />
       {sales.map((sale, i) => (
         <OrderCard
           key={ sale.id }
