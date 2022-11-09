@@ -60,7 +60,7 @@ function Products() {
 
   return (
     <div>
-      <NavBar showProducts />
+      <NavBar showProducts showOrders />
       <button
         data-testid="customer_products__checkout-bottom-value"
         type="button"
