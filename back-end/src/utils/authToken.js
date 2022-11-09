@@ -10,7 +10,6 @@ const authToken = (req, res, next) => {
 
   try {
     const { userData } = jwt.verify(token, jwtKey);
-    console.log(userData);
     if (userData.role !== 'administrator') {
       return res.status(401).json({ message: 'Unauthorized' });
     }
