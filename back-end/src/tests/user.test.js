@@ -101,4 +101,16 @@ describe("Teste de User", () => {
       expect(response.body).to.be.deep.eq(allSellersMock)
     });
   })
-});
+
+  describe('metodo removeUser', () => {
+    it('caso de sucesso', async () => {
+      sinon.stub(User, 'findOne').resolves(createResponseUser)
+      sinon.stub(User, 'destroy').resolves(1);
+      sinon.stub(jwt, 'verify').returns({userData: {role: 'administrator'}})
+
+      const response = await chai.request(app).delete('users/admin/1').set('Authorization', 'anytoken');
+      expect(response.status).to.be.eq(204);
+      expect(response.body).to.be.deep.eq({});
+    });
+  })
+})
