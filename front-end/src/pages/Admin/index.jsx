@@ -1,11 +1,16 @@
 import NavBar from '../../components/NavBar/index';
 import AdminForm from '../../components/AdminForm';
+import Provider from '../../Context/Provider';
+import UsersTable from '../../components/UsersTable';
 
 function Admin() {
   return (
     <div>
-      <NavBar showProducts={ false } showOrders={ false } />
-      <AdminForm />
+      <Provider>
+        <NavBar showProducts={ false } showOrders={ false } />
+        <AdminForm />
+        <UsersTable />
+      </Provider>
     </div>
   );
 }
