@@ -100,7 +100,6 @@ describe("Teste de Product", () => {
     
     it('caso não exista o produto com id enviado', async () => {
       sinon.stub(Product, 'findOne').resolves(null);
-      // sinon.stub(Product, 'update').resolves(productResponse);
 
       const response = await chai.request(app).put('/products/1').send(createProductMock);
       expect(response.status).to.be.eq(404);
