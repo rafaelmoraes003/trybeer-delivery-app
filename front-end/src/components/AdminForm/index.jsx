@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import UsersContext from '../../Context/UsersContext';
 import InputWithLabel from '../InputWithLabel/index';
 
 function AdminForm() {
@@ -8,6 +9,7 @@ function AdminForm() {
   const availabeRoles = ['customer', 'seller'];
   const [role, setRole] = useState(availabeRoles[0]);
   const [errorMessage, setErrorMessage] = useState(false);
+  const { addUser } = useContext(UsersContext);
 
   const validateFields = () => {
     const MIN_NAME_LENGTH = 12;
@@ -31,8 +33,14 @@ function AdminForm() {
     });
 
     const body = await response.json();
-    if (body.error) setErrorMessage(true);
-    else setErrorMessage(false);
+    if (body.error) {
+      setErrorMessage(true);
+    } else {
+      setErrorMessage(false);
+      delete body.password;
+      delete body.token;
+      addUser(body);
+    }
   };
 
   return (
@@ -42,7 +50,6 @@ function AdminForm() {
         type="text"
         testId="admin_manage__input-name"
         onChange={ setName }
-
       />
 
       <InputWithLabel

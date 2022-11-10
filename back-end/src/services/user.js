@@ -1,12 +1,20 @@
+const { Op } = require('sequelize');
 const { User } = require('../database/models');
 const { decryptPassword } = require('../utils/descryptPassword');
 const { validateBody } = require('../utils/validations/validateBody');
-const { validateUser } = require('../utils/validations/validateUser');
+const { validateUser, validateIfUserExists } = require('../utils/validations/validateUser');
 const { userSchema } = require('../schemas/user');
 const { createToken } = require('../utils/createToken');
 
 const getAll = async () => {
-  const users = await User.findAll({ attributes: { exclude: 'password' } });
+  const users = await User.findAll({
+    attributes: { exclude: 'password' },
+    where: {
+      role: {
+        [Op.not]: 'administrator',
+      },
+    },
+  });
   return { code: 200, data: users };
 };
 
@@ -25,4 +33,10 @@ const create = async (userData) => {
   return { code: 201, data: { ...newUser.dataValues, token } };
 };
 
-module.exports = { getAll, create, getSellers };
+const removeUser = async (id) => {
+  await validateIfUserExists(id);
+  await User.destroy({ where: { id } });
+  return { code: 204 };
+};
+
+module.exports = { getAll, create, getSellers, removeUser };

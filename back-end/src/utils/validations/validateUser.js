@@ -8,4 +8,11 @@ const validateUser = async (email) => {
   }
 };
 
-module.exports = { validateUser };
+const validateIfUserExists = async (id) => {
+  const user = await User.findOne({ where: { id } });
+  if (!user) {
+    throw new CustomError('User does not exists.', 409);
+  }
+};
+
+module.exports = { validateUser, validateIfUserExists };
