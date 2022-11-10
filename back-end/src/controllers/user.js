@@ -28,6 +28,16 @@ const create = async (req, res, next) => {
   }
 };
 
+const removeUser = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const { code } = await userService.removeUser(id);
+    return res.status(code).end();
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
-  getAll, create, getSellers,
+  getAll, create, getSellers, removeUser,
 };
