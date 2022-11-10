@@ -43,7 +43,7 @@ const destroy = async (req, res, next) => {
   const { id } = req.params;
   try {
     await productService.destroy(id);
-    return res.status(200).json({ message: 'product deleted' });
+    return res.status(204).end();
   } catch (error) {
     next(error);
   }
