@@ -5,10 +5,10 @@ import Products from './pages/Products';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
-import DetailsOrder from './pages/DetailsOrder';
+import OrderDetails from './pages/OrderDetails';
 import SellerOrders from './pages/SellerOrders';
-import SellerOrderDetails from './pages/SellerOrderDetails/index';
-import Admin from './pages/Admin/index';
+import SellerOrderDetails from './pages/SellerOrderDetails';
+import Admin from './pages/Admin';
 
 function Routes() {
   return (
@@ -19,7 +19,7 @@ function Routes() {
       <Route exact path="/customer/products" element={ <Products /> } />
       <Route exact path="/customer/checkout" element={ <Checkout /> } />
       <Route exact path="/customer/orders" element={ <Orders /> } />
-      <Route exact path="/customer/orders/:id" element={ <DetailsOrder /> } />
+      <Route exact path="/customer/orders/:id" element={ <OrderDetails /> } />
       <Route exact path="/seller/orders" element={ <SellerOrders /> } />
       <Route exact path="/seller/orders/:id" element={ <SellerOrderDetails /> } />
       <Route exact path="/admin/manage" element={ <Admin /> } />
