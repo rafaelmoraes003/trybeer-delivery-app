@@ -49,16 +49,16 @@ const getById = async (req, res, next) => {
   }
 };
 
-const update = async (req, res, next) => {
-  const { body } = req;
-  const { id } = req.params;
-  try {
-    await saleService.update(id, body);
-    return res.status(200).json({ message: 'sale updated' });
-  } catch (error) {
-    next(error);
-  }
-};
+// const update = async (req, res, next) => {
+//   const { body } = req;
+//   const { id } = req.params;
+//   try {
+//     await saleService.update(id, body);
+//     return res.status(200).json({ message: 'sale updated' });
+//   } catch (error) {
+//     next(error);
+//   }
+// };
 
 const updateSaleStatus = async (req, res, next) => {
   const { status } = req.body;
@@ -71,22 +71,22 @@ const updateSaleStatus = async (req, res, next) => {
   }
 };
 
-const destroy = async (req, res, next) => {
-  const { id } = req.params;
-  try {
-    await saleService.destroy(id);
-    return res.status(200).json({ message: 'sale deleted' });
-  } catch (error) {
-    next(error);
-  }
-};
+// const destroy = async (req, res, next) => {
+//   const { id } = req.params;
+//   try {
+//     await saleService.destroy(id);
+//     return res.status(200).json({ message: 'sale deleted' });
+//   } catch (error) {
+//     next(error);
+//   }
+// };
 
 module.exports = { create,
   getAll,
   getAllBySellerId,
   getAllByUserId,
   getById,
-  update,
-  destroy,
+  // update,
+  // destroy,
   updateSaleStatus, 
 };

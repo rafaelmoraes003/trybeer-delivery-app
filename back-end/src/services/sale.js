@@ -2,7 +2,7 @@ const { Sale } = require('../database/models');
 const { validateBody } = require('../utils/validations/validateBody');
 const { saleSchema } = require('../schemas/sale');
 const { CustomError } = require('../utils/CustomError');
-const { validateSale } = require('../utils/validations/validateSale');
+// const { validateSale } = require('../utils/validations/validateSale');
 const { getSales } = require('../utils/getSales');
 
 const notFound = 'Sale not Found';
@@ -34,32 +34,32 @@ const getById = async (id, showProducts) => {
   return { code: 200, data: sale };
 };
 
-const update = async (id, saleData) => {
-  await validateSale(id);
-  const { userId, sellerId, totalPrice,
-    deliveryAddress, deliveryNumber, saleDate, status } = saleData;
-  validateBody(saleData, saleSchema);
-  const updatedProduct = await Sale.update(
-  { 
-    userId,
-    sellerId,
-    totalPrice,
-    deliveryAddress,
-    deliveryNumber,
-    saleDate, 
-    status, 
-  },
-  { where: { id } },
-);
-  if (!updatedProduct) throw new CustomError(notFound, 404);
-  return updatedProduct;
-};
+// const update = async (id, saleData) => {
+//   await validateSale(id);
+//   const { userId, sellerId, totalPrice,
+//     deliveryAddress, deliveryNumber, saleDate, status } = saleData;
+//   validateBody(saleData, saleSchema);
+//   const updatedProduct = await Sale.update(
+//   { 
+//     userId,
+//     sellerId,
+//     totalPrice,
+//     deliveryAddress,
+//     deliveryNumber,
+//     saleDate, 
+//     status, 
+//   },
+//   { where: { id } },
+// );
+//   if (!updatedProduct) throw new CustomError(notFound, 404);
+//   return updatedProduct;
+// };
 
-const destroy = async (id) => {
-  const deletedProduct = await Sale.destroy({ where: { id } });
-  if (!deletedProduct) throw new CustomError(notFound, 404);
-  return deletedProduct;
-};
+// const destroy = async (id) => {
+//   const deletedProduct = await Sale.destroy({ where: { id } });
+//   if (!deletedProduct) throw new CustomError(notFound, 404);
+//   return deletedProduct;
+// };
 
 const updateSaleStatus = async (id, status) => {
   await Sale.update({ status }, { where: { id } });
@@ -72,7 +72,7 @@ module.exports = {
   getAllBySellerId,
   getAllByUserId,
   getById,
-  update,
-  destroy,
+  // update,
+  // destroy,
   updateSaleStatus,
 };

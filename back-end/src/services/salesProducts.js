@@ -2,18 +2,18 @@ const { SaleProduct } = require('../database/models');
 const { saleProductSChema } = require('../schemas/saleProduct');
 const { validateBody } = require('../utils/validations/validateBody');
 
-const getAll = async (saleProductList) => {
-  validateBody(saleProductList, saleProductSChema);
-  const saleProducts = await SaleProduct.findAll();
-  return { code: 200, data: saleProducts };
-};
+// const getAll = async (saleProductList) => {
+//   validateBody(saleProductList, saleProductSChema);
+//   const saleProducts = await SaleProduct.findAll();
+//   return { code: 200, data: saleProducts };
+// };
 
-const getBySaleId = async (saleId) => {
-  const saleProducts = await SaleProduct.findAll({
-    where: { saleId },
-  });
-  return { code: 201, data: saleProducts };
-};
+// const getBySaleId = async (saleId) => {
+//   const saleProducts = await SaleProduct.findAll({
+//     where: { saleId },
+//   });
+//   return { code: 201, data: saleProducts };
+// };
 
 const create = async (saleProductList) => {
   validateBody(saleProductList, saleProductSChema);
@@ -21,17 +21,19 @@ const create = async (saleProductList) => {
   return { code: 201, data: newSaleProducts };
 };
 
-const update = async (saleId, saleProductData) => {
-  validateBody(saleProductData, saleProductSChema);
-  const updatedSaleProduct = await SaleProduct.update(
-  { saleProductData }, { where: { saleId } },
-);
-  return { code: 200, data: updatedSaleProduct };
-};
+// const update = async (saleId, saleProductData) => {
+//   validateBody(saleProductData, saleProductSChema);
+//   const updatedSaleProduct = await SaleProduct.update(
+//   { saleProductData }, { where: { saleId } },
+// );
+//   return { code: 200, data: updatedSaleProduct };
+// };
 
-const destroy = async (saleId) => {
-  const deletedSaleProduct = await SaleProduct.destroy({ where: { saleId } });
-  return { code: 204, data: deletedSaleProduct };
-};
+// const destroy = async (saleId) => {
+//   const deletedSaleProduct = await SaleProduct.destroy({ where: { saleId } });
+//   return { code: 204, data: deletedSaleProduct };
+// };
 
-module.exports = { create, getAll, update, destroy, getBySaleId };
+module.exports = { create, 
+  // getAll, update, destroy, getBySaleId 
+};
