@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Input from '../../components/InputWithLabel/index';
-import loginRoutes from '../../utils/loginRoutes';
+import 'react-toastify/dist/ReactToastify.css';
+import Input from '../components/InputWithLabel';
+import loginRoutes from '../utils/loginRoutes';
 
 function Login() {
   const navigateTo = useNavigate();
@@ -74,11 +75,9 @@ function Login() {
       </button>
 
       {invalidUserMessage && (
-        <p
-          data-testid="common_login__element-invalid-email"
-        >
-          Usuário inválido.
-        </p>
+        <div data-testid="common_login__element-invalid-email">
+          <p>Usuário inválido.</p>
+        </div>
       )}
     </div>
   );

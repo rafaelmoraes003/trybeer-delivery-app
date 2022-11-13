@@ -4,10 +4,8 @@ import { useState } from 'react';
 function SellerInfo({ id, saleDate, status }) {
   const [orderStatus, setOrderStatus] = useState(status);
 
-  const ChangePrepare = () => {
-    if (orderStatus === 'Pendente') return false;
-    if (orderStatus !== 'Pendente') return true;
-  };
+  const ChangePrepare = () => orderStatus === 'Pendente';
+  const ChangeDelivery = () => orderStatus === 'Preparando';
 
   const ChangeStatusClick = async (newStatus) => {
     setOrderStatus(newStatus);
@@ -20,11 +18,6 @@ function SellerInfo({ id, saleDate, status }) {
         status: newStatus,
       }),
     });
-  };
-
-  const ChangeDelivery = () => {
-    if (orderStatus === 'Preparando') return false;
-    if (orderStatus !== 'Preparando') return true;
   };
 
   return (
@@ -44,7 +37,7 @@ function SellerInfo({ id, saleDate, status }) {
         type="button"
         data-testid="seller_order_details__button-preparing-check"
         onClick={ () => ChangeStatusClick('Preparando') }
-        disabled={ ChangePrepare() }
+        disabled={ !ChangePrepare() }
       >
         Preparar Pedido
       </button>
@@ -53,7 +46,7 @@ function SellerInfo({ id, saleDate, status }) {
         type="button"
         data-testid="seller_order_details__button-dispatch-check"
         onClick={ () => ChangeStatusClick('Em Trânsito') }
-        disabled={ ChangeDelivery() }
+        disabled={ !ChangeDelivery() }
       >
         Saiu para Entrega
       </button>

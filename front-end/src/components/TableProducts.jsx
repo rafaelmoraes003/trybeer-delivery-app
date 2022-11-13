@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getTotalPrice from '../../utils/getTotalPrice';
+import getTotalPrice from '../utils/getTotalPrice';
 
 function TableProducts() {
   const [products, setProducts] = useState([]);

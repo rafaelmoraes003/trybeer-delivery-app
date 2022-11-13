@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
-import UsersContext from '../../Context/UsersContext';
-import InputWithLabel from '../InputWithLabel/index';
+import UsersContext from '../Context/UsersContext';
+import InputWithLabel from './InputWithLabel';
 
 function AdminForm() {
   const [name, setName] = useState('');
@@ -89,9 +89,9 @@ function AdminForm() {
       </button>
 
       {errorMessage && (
-        <p data-testid="admin_manage__element-invalid-register">
-          Usuário já existente.
-        </p>
+        <div data-testid="admin_manage__element-invalid-register">
+          <p>Usuário já existente</p>
+        </div>
       )}
 
     </form>

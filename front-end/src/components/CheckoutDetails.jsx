@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import createSaleProductRequest from '../../utils/createSaleProductRequest';
-import createSaleRequest from '../../utils/createSaleRequest';
-import getTotalPrice from '../../utils/getTotalPrice';
-import InputWithLabel from '../InputWithLabel';
+import createSaleProductRequest from '../utils/createSaleProductRequest';
+import createSaleRequest from '../utils/createSaleRequest';
+import getTotalPrice from '../utils/getTotalPrice';
+import InputWithLabel from './InputWithLabel';
 
 function CheckoutDetails() {
   const navigateTo = useNavigate();
@@ -21,6 +21,11 @@ function CheckoutDetails() {
       setSellerId(data[0].id);
     };
     getSellers();
+
+    return () => {
+      setSellers([]);
+      setSellerId(null);
+    };
   }, []);
 
   const createSale = async () => {
@@ -47,7 +52,7 @@ function CheckoutDetails() {
           <select
             id="sellers"
             data-testid="customer_checkout__select-seller"
-            onChange={ (e) => console.log(e.target.value) }
+            onChange={ (e) => setSellerId(e.target.value) }
           >
             {sellers.map((seller) => (
               <option
@@ -82,9 +87,9 @@ function CheckoutDetails() {
           Finalizar Pedido
         </button>
         {errorMessage && (
-          <p>
-            Dados Inválidos.
-          </p>
+          <div data-testid="customer_checkout__error-message">
+            <p>Dados inválidos.</p>
+          </div>
         )}
       </div>
     </div>

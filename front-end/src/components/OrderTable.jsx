@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-function OrderTable({ productsList = [], role }) {
+function OrderTable({ productsList, role }) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function Input({ testId, type, labelText, onChange }) {
+function InputWithLabel({ testId, type, labelText, onChange }) {
   return (
     <label htmlFor={ testId }>
       { labelText }
@@ -14,11 +14,11 @@ function Input({ testId, type, labelText, onChange }) {
   );
 }
 
-Input.propTypes = {
+InputWithLabel.propTypes = {
   testId: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Input;
+export default InputWithLabel;

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import NavBar from '../../components/NavBar';
-import OrderInfo from '../../components/OrderInfo/index';
-import OrderTable from '../../components/OrderTable/index';
-import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
+import NavBar from '../components/NavBar';
+import OrderInfo from '../components/OrderInfo';
+import OrderTable from '../components/OrderTable';
+import getDataFromEndpoint from '../utils/getDataFromEndpoint';
 
-function DetailsOrder() {
+function OrderDetails() {
   const [orderDetails, setOrderDetails] = useState({});
   const { role } = JSON.parse(localStorage.getItem('user'));
   const { id: saleId } = useParams();
@@ -15,6 +15,10 @@ function DetailsOrder() {
       await getDataFromEndpoint(`/sales/${saleId}?showProducts=true`, setOrderDetails);
     };
     getOrder();
+
+    return () => {
+      setOrderDetails({});
+    };
   }, [saleId]);
 
   return (
@@ -35,8 +39,9 @@ function DetailsOrder() {
           />
         </>
       )}
+      {/* <ToastContainer /> */}
     </main>
   );
 }
 
-export default DetailsOrder;
+export default OrderDetails;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../../components/NavBar';
-import ProductCard from '../../components/ProductCard';
+import NavBar from '../components/NavBar';
+import ProductCard from '../components/ProductCard';
 
 function Products() {
   const navigateTo = useNavigate();
@@ -17,6 +17,10 @@ function Products() {
       setProducts(productsWithQuantity);
     };
     getProducts();
+
+    return () => {
+      setProducts([]);
+    };
   }, []);
 
   useEffect(() => {

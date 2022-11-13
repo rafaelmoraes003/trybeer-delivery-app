@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import NavBar from '../../components/NavBar';
-import OrderCard from '../../components/OrderCard';
-import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
+import NavBar from '../components/NavBar';
+import OrderCard from '../components/OrderCard';
+import getDataFromEndpoint from '../utils/getDataFromEndpoint';
 
 function SellerOrders() {
   const [orders, setOrders] = useState([]);

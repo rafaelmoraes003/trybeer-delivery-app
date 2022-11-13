@@ -105,9 +105,9 @@ function Register() {
       </form>
       {
         (loginFailed && (
-          <p data-testid="common_register__element-invalid_register">
-            Usuário já existente.
-          </p>
+          <div data-testid="common_register__element-invalid_register">
+            <p>Usuário já existente.</p>
+          </div>
         ))
       }
 

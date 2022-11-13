@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import NavBar from '../../components/NavBar';
-import OrderTable from '../../components/OrderTable';
-import SellerInfo from '../../components/SellerInfo';
-import getDataFromEndpoint from '../../utils/getDataFromEndpoint';
+import NavBar from '../components/NavBar';
+import OrderTable from '../components/OrderTable';
+import SellerInfo from '../components/SellerInfo';
+import getDataFromEndpoint from '../utils/getDataFromEndpoint';
 
 function SellerOrderDetails() {
   const [order, setOrder] = useState({});
@@ -15,6 +15,10 @@ function SellerOrderDetails() {
       await getDataFromEndpoint(`/sales/${saleId}?showProducts=true`, setOrder);
     };
     getOrders();
+
+    return () => {
+      setOrder({});
+    };
   }, [saleId]);
 
   return (

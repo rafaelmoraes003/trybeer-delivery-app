@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import UsersContext from '../../Context/UsersContext';
+import UsersContext from '../Context/UsersContext';
 
 function UsersTable() {
   const { users, deleteUser } = useContext(UsersContext);
