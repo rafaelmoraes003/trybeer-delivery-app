@@ -18,6 +18,10 @@ function Provider({ children }) {
       setUsers(data);
     };
     getUsers();
+
+    return () => {
+      setUsers([]);
+    };
   }, [token]);
 
   const contextValue = useMemo(() => {
