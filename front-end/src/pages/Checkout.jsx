@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckoutDetails from '../components/CheckoutDetails';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Navbar/NavBar';
 import TableProducts from '../components/TableProducts';
 
 function Checkout() {

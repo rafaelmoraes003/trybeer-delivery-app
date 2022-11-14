@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
 
+import * as S from './styled';
+
 function NavBar({ showProducts, showOrders }) {
   const navigateTo = useNavigate();
   const { name, role } = JSON.parse(localStorage.getItem('user'));
@@ -11,43 +13,44 @@ function NavBar({ showProducts, showOrders }) {
   };
 
   return (
-    <div>
+    <S.Container>
       {showProducts && (
-        <button
+        <S.ProductsButton
+          className="btnColor"
           type="button"
           data-testid="customer_products__element-navbar-link-products"
           onClick={ () => { navigateTo('/customer/products'); } }
         >
           PRODUTOS
 
-        </button>
+        </S.ProductsButton>
       )}
 
       {showOrders && (
-        <button
+        <S.OrdersButton
           type="button"
           data-testid="customer_products__element-navbar-link-orders"
           onClick={ () => { navigateTo(`/${role}/orders`); } }
         >
           { showProducts ? 'MEUS PEDIDOS' : 'PEDIDOS' }
-        </button>
+        </S.OrdersButton>
       )}
 
-      <div
+      <S.User
         data-testid={ `${role}_products__element-navbar-user-full-name` }
       >
         { name }
-      </div>
+      </S.User>
 
-      <button
+      <S.Logout
         type="button"
         data-testid="customer_products__element-navbar-link-logout"
         onClick={ logout }
       >
         SAIR
-      </button>
+      </S.Logout>
 
-    </div>
+    </S.Container>
   );
 }
 

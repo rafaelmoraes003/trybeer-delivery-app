@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 
+import * as S from './styled';
+
 function InputWithLabel({ testId, type, labelText, onChange }) {
   return (
-    <label htmlFor={ testId }>
+    <S.Label htmlFor={ testId }>
       { labelText }
-      <input
+      <S.Input
         id={ testId }
         data-testid={ testId }
         type={ type }
         onChange={ (e) => onChange(e.target.value) }
       />
-    </label>
+    </S.Label>
   );
 }
 

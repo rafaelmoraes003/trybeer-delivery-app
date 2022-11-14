@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Navbar/NavBar';
 import OrderTable from '../components/OrderTable';
 import SellerInfo from '../components/SellerInfo';
 import getDataFromEndpoint from '../utils/getDataFromEndpoint';
