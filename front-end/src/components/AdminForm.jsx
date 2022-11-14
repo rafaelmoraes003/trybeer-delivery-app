@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import UsersContext from '../Context/UsersContext';
-import InputWithLabel from './InputWithLabel';
+import InputWithLabel from './InputLabel/InputWithLabel';
 
 function AdminForm() {
   const [name, setName] = useState('');
