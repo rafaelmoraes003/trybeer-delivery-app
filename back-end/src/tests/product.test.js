@@ -40,26 +40,6 @@ describe("Teste de Product", () => {
     sinon.restore()
   })
 
-  // describe('metodo create', () => {
-  //   it('caso de sucesso', async () => {
-  //     sinon.stub(Product, 'create').resolves(productResponse);
-  //     sinon.stub(Product, 'findOne').resolves(null);
-
-  //     const response = await chai.request(app).post('/products').send(createProductMock);
-  //     expect(response.status).to.be.eq(201);
-  //     expect(response.body).to.be.deep.eq(productResponse);
-  //   })
-    
-  //   it('caso já exista um produto igual', async () => {
-  //     sinon.stub(Product, 'create').resolves(productResponse);
-  //     sinon.stub(Product, 'findOne').resolves(productResponse);
-
-  //     const response = await chai.request(app).post('/products').send(createProductMock);
-  //     expect(response.status).to.be.eq(404);
-  //     expect(response.body).to.be.deep.eq({ error:'Product already exists' });
-  //   });
-  // });
-
   describe('metodo getAll', () => {
     it('caso de sucesso', async () => {
       sinon.stub(Product, 'findAll').resolves(productArray);
@@ -69,52 +49,4 @@ describe("Teste de Product", () => {
       expect(response.body).to.be.deep.eq(productArray);
     })
   })
-
-  // describe('metodo getById', () => {
-  //   it('caso de sucesso', async () => {
-  //     sinon.stub(Product, 'findOne').resolves(productResponse);
-
-  //     const response = await chai.request(app).get('/products/1');
-  //     expect(response.status).to.be.eq(200);
-  //     expect(response.body).to.be.deep.eq(productResponse);
-  //   })
-
-    // it('caso não exista o produto com id enviado', async () => {
-    //   sinon.stub(Product, 'findOne').resolves(null);
-
-    //   const response = await chai.request(app).get('/products/1')
-    //   expect(response.status).to.be.eq(404);
-    //   expect(response.body).to.be.deep.eq({ error: 'Product not Found'});
-    // })
-  // })
-
-  // describe('metodo update', () => {
-  //   it('caso de sucesso', async () => {
-  //     sinon.stub(Product, 'update').resolves(productResponse);
-  //     sinon.stub(Product, 'findOne').resolves(productResponse);
-
-  //     const response = await chai.request(app).put('/products/1').send(createProductMock);
-  //     expect(response.status).to.be.eq(200);
-  //     expect(response.body).to.be.deep.eq({message: 'product updated'});
-  //   })
-    
-  //   it('caso não exista o produto com id enviado', async () => {
-  //     sinon.stub(Product, 'findOne').resolves(null);
-
-  //     const response = await chai.request(app).put('/products/1').send(createProductMock);
-  //     expect(response.status).to.be.eq(404);
-  //     expect(response.body).to.be.deep.eq({ error: 'Product not Found'});
-  //   })
-  // })
-
-  // describe('metodo destroy', () => {
-  //   it('caso de sucesso', async () => {
-  //     sinon.stub(Product, 'destroy').resolves(productResponse);
-
-  //     const response = await chai.request(app).delete('/products/1');
-  //     expect(response.status).to.be.eq(204);
-  //     expect(response.body).to.be.deep.eq({});
-  //   })
-  // })
-
 })

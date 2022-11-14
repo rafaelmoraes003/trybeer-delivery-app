@@ -2,7 +2,6 @@ const { Sale } = require('../database/models');
 const { validateBody } = require('../utils/validations/validateBody');
 const { saleSchema } = require('../schemas/sale');
 const { CustomError } = require('../utils/CustomError');
-// const { validateSale } = require('../utils/validations/validateSale');
 const { getSales } = require('../utils/getSales');
 
 const notFound = 'Sale not Found';

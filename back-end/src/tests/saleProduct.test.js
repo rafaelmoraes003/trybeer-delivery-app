@@ -15,8 +15,6 @@ const createSaleProductMock = [
 	}
 ]	
 
-// const saleProductResponse = 
-
 describe("Teste de Sale", () => {
   afterEach(() => {
     sinon.restore()
@@ -32,14 +30,4 @@ describe("Teste de Sale", () => {
       expect(response.body).to.be.deep.eq(createSaleProductMock);
     })
   });
-
-  // describe('metodo getAll', () => {
-  //   it('caso de sucesso', async () => {
-  //     sinon.stub(SaleProduct, 'findAll').resolves();
-
-  //     const response = await chai.request(app).get('/sales-products');
-  //     expect(response.status).to.be.eq(200);
-  //     expect(response.body).to.be.deep.eq();
-  //   })
-  // })
 })
