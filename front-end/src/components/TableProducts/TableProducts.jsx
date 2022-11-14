@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import getTotalPrice from '../utils/getTotalPrice';
+import getTotalPrice from '../../utils/getTotalPrice';
+
+import * as S from './styled';
 
 function TableProducts() {
   const [products, setProducts] = useState([]);
@@ -20,21 +22,22 @@ function TableProducts() {
     setProducts(newCart);
   }
   return (
-    <div>
-      <table>
+    <S.Main>
+      <h1>Finalizar Pedido</h1>
+      <S.Table>
         <thead>
-          <tr>
+          <S.TableRow>
             <th>Item</th>
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>SubTotal</th>
             <th>Remover Item</th>
-          </tr>
+          </S.TableRow>
         </thead>
         <tbody>
           {products.map((item, i) => (
-            <tr key={ i }>
+            <S.TableRow key={ i }>
               <td
                 data-testid={ `customer_checkout__element-order-table-item-number-${i}` }
               >
@@ -63,24 +66,25 @@ function TableProducts() {
               <td
                 data-testid={ `customer_checkout__element-order-table-remove-${i}` }
               >
-                <button
+                <S.Button
                   type="button"
                   id={ item.id }
                   onClick={ (e) => removeItem(e.target.id) }
                 >
                   Remover
-                </button>
+                </S.Button>
               </td>
-            </tr>
+            </S.TableRow>
           ))}
         </tbody>
-      </table>
-      <h2
-        data-testid="customer_checkout__element-order-total-price"
-      >
-        {Number(totalPrice).toFixed(2).replace('.', ',')}
-      </h2>
-    </div>
+        <S.Total
+          data-testid="customer_checkout__element-order-total-price"
+        >
+          Total: R$
+          {Number(totalPrice).toFixed(2).replace('.', ',')}
+        </S.Total>
+      </S.Table>
+    </S.Main>
   );
 }
 
