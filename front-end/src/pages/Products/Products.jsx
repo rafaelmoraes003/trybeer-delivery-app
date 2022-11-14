@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../../components/NavBar';
+import NavBar from '../../components/Navbar/NavBar';
 import ProductCard from '../../components/ProductsCard/ProductCard';
 
 import * as S from './styled';
