@@ -33,6 +33,7 @@ export const Image = styled.div`
 
 export const Title = styled.h3`
   text-align: center;
+  font-size: 16px;
 `;
 
 export const WrapperItem = styled.div`
