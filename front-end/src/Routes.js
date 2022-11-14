@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes as Switch, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';

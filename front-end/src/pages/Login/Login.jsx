@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Input from '../components/InputWithLabel';
-import loginRoutes from '../utils/loginRoutes';
+import Input from '../../components/InputLabel/InputWithLabel';
+import loginRoutes from '../../utils/loginRoutes';
+
+import * as S from './styled';
 
 function Login() {
   const navigateTo = useNavigate();
@@ -40,45 +42,47 @@ function Login() {
   };
 
   return (
-    <div>
+    <S.Container>
+      <h1>App Delivery</h1>
+      <S.Forms>
+        <Input
+          testId="common_login__input-email"
+          type="text"
+          labelText="Login"
+          onChange={ setEmail }
+        />
 
-      <Input
-        testId="common_login__input-email"
-        type="text"
-        labelText="Login"
-        onChange={ setEmail }
-      />
+        <Input
+          testId="common_login__input-password"
+          type="password"
+          labelText="Senha"
+          onChange={ setPassword }
+        />
 
-      <Input
-        testId="common_login__input-password"
-        type="password"
-        labelText="Senha"
-        onChange={ setPassword }
-      />
+        <S.ButtonLogin
+          data-testid="common_login__button-login"
+          type="button"
+          disabled={ !validateFields() }
+          onClick={ getUser }
+        >
+          Login
+        </S.ButtonLogin>
 
-      <button
-        data-testid="common_login__button-login"
-        type="button"
-        disabled={ !validateFields() }
-        onClick={ getUser }
-      >
-        Login
-      </button>
-
-      <button
-        data-testid="common_login__button-register"
-        type="button"
-        onClick={ () => navigateTo('/register') }
-      >
-        Ainda não tenho conta
-      </button>
+        <S.ButtonRegister
+          data-testid="common_login__button-register"
+          type="button"
+          onClick={ () => navigateTo('/register') }
+        >
+          Ainda não tenho conta
+        </S.ButtonRegister>
+      </S.Forms>
 
       {invalidUserMessage && (
         <div data-testid="common_login__element-invalid-email">
           <p>Usuário inválido.</p>
         </div>
       )}
-    </div>
+    </S.Container>
   );
 }
 
