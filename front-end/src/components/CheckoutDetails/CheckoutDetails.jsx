@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import createSaleProductRequest from '../utils/createSaleProductRequest';
-import createSaleRequest from '../utils/createSaleRequest';
-import getTotalPrice from '../utils/getTotalPrice';
-import InputWithLabel from './InputLabel/InputWithLabel';
+import createSaleProductRequest from '../../utils/createSaleProductRequest';
+import createSaleRequest from '../../utils/createSaleRequest';
+import getTotalPrice from '../../utils/getTotalPrice';
+import InputWithLabel from '../InputLabel/InputWithLabel';
+
+import * as S from './styled';
 
 function CheckoutDetails() {
   const navigateTo = useNavigate();
@@ -44,12 +46,12 @@ function CheckoutDetails() {
   };
 
   return (
-    <div>
+    <S.Container>
       <h1>Detalhes e Endereço para a Entrega</h1>
-      <div>
-        <label htmlFor="sellers">
-          Pessoa Vendedora Responsável
-          <select
+      <S.Form>
+        <S.Label htmlFor="sellers">
+          P. Vendedora Responsável
+          <S.Select
             id="sellers"
             data-testid="customer_checkout__select-seller"
             onChange={ (e) => setSellerId(e.target.value) }
@@ -62,37 +64,39 @@ function CheckoutDetails() {
                 {seller.name}
               </option>
             ))}
-          </select>
-        </label>
+          </S.Select>
+        </S.Label>
+        <S.InputAdddres>
+          <InputWithLabel
+            labelText="Endereço"
+            type="text"
+            testId="customer_checkout__input-address"
+            onChange={ setAddress }
+          />
+        </S.InputAdddres>
+        <S.InputNumber>
+          <InputWithLabel
+            labelText="Número"
+            type="number"
+            testId="customer_checkout__input-address-number"
+            onChange={ setNumber }
+          />
+        </S.InputNumber>
+      </S.Form>
 
-        <InputWithLabel
-          labelText="Endereço"
-          type="text"
-          testId="customer_checkout__input-address"
-          onChange={ setAddress }
-        />
-
-        <InputWithLabel
-          labelText="Número"
-          type="number"
-          testId="customer_checkout__input-address-number"
-          onChange={ setNumber }
-        />
-
-        <button
-          type="button"
-          data-testid="customer_checkout__button-submit-order"
-          onClick={ createSale }
-        >
-          Finalizar Pedido
-        </button>
-        {errorMessage && (
-          <div data-testid="customer_checkout__error-message">
-            <p>Dados inválidos.</p>
-          </div>
-        )}
-      </div>
-    </div>
+      <S.Button
+        type="button"
+        data-testid="customer_checkout__button-submit-order"
+        onClick={ createSale }
+      >
+        Finalizar Pedido
+      </S.Button>
+      {errorMessage && (
+        <div data-testid="customer_checkout__error-message">
+          <p>Dados inválidos.</p>
+        </div>
+      )}
+    </S.Container>
   );
 }
 
