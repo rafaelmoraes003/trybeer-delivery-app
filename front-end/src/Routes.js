@@ -4,9 +4,9 @@ import Login from './pages/Login/Login';
 import Products from './pages/Products/Products';
 import Register from './pages/Register/Register';
 import Checkout from './pages/Checkout/Checkout';
-import Orders from './pages/Orders';
+import Orders from './pages/Orders/Orders';
 import OrderDetails from './pages/OrderDetails';
-import SellerOrders from './pages/SellerOrders';
+import SellerOrders from './pages/SellerOrders/SellerOrders';
 import SellerOrderDetails from './pages/SellerOrderDetails';
 import Admin from './pages/Admin';
 
