@@ -5,9 +5,9 @@ import Products from './pages/Products/Products';
 import Register from './pages/Register/Register';
 import Checkout from './pages/Checkout/Checkout';
 import Orders from './pages/Orders/Orders';
-import OrderDetails from './pages/OrderDetails';
+import OrderDetails from './pages/OrderDetails/OrderDetails';
 import SellerOrders from './pages/SellerOrders/SellerOrders';
-import SellerOrderDetails from './pages/SellerOrderDetails';
+import SellerOrderDetails from './pages/SellerOrderDetails/SellerOrderDetails';
 import Admin from './pages/Admin';
 
 function Routes() {
