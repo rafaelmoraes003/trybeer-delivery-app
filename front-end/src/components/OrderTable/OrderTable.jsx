@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
+import * as S from './styled';
+
 function OrderTable({ productsList, role }) {
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -11,21 +13,20 @@ function OrderTable({ productsList, role }) {
   }, [productsList]);
 
   return (
-    <div>
-      <h1>Detalhe do Pedido</h1>
-      <table>
+    <S.Main>
+      <S.Table>
         <thead>
-          <tr>
+          <S.TableRow>
             <th>Item</th>
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>SubTotal</th>
-          </tr>
+          </S.TableRow>
         </thead>
         <tbody>
           {productsList.map((item, i) => (
-            <tr key={ i }>
+            <S.TableRow key={ i }>
               <td
                 data-testid={
                   `${role}_order_details__element-order-table-item-number-${i}`
@@ -62,15 +63,15 @@ function OrderTable({ productsList, role }) {
                     .toFixed(2).replace('.', ',')
                 }
               </td>
-            </tr>
+            </S.TableRow>
           ))}
         </tbody>
-      </table>
+      </S.Table>
 
-      <p data-testid={ `${role}_order_details__element-order-total-price` }>
+      <S.PriceTotal data-testid={ `${role}_order_details__element-order-total-price` }>
         {`Total: R$ ${Number(totalPrice).toFixed(2).replace('.', ',')}`}
-      </p>
-    </div>
+      </S.PriceTotal>
+    </S.Main>
   );
 }
 
