@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/InputLabel/InputWithLabel';
 import loginRoutes from '../../utils/loginRoutes';
+import logo from '../../images/Trybeer.png';
 
 import * as S from './styled';
 
@@ -43,8 +44,11 @@ function Login() {
 
   return (
     <S.Container>
-      <h1>App Delivery</h1>
+      <S.Image>
+        <img src={ logo } width={ 400 } alt="Logo do App Trybeer" />
+      </S.Image>
       <S.Forms>
+        <h1>App Delivery</h1>
         <Input
           testId="common_login__input-email"
           type="text"

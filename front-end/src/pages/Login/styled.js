@@ -3,8 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.section`
   align-items: center;
   display: flex;
-  flex-direction: column;
-  margin: auto;  
+  height: 100vh ;
+  justify-content: center;
+`;
+
+export const Image = styled.div`
+  
 `;
 
 export const Forms = styled.form`
@@ -13,7 +17,7 @@ export const Forms = styled.form`
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  height: 444px;
+  height: 480px;
   left: 750px;
   padding: 12px 24px;
   top: 501px;
