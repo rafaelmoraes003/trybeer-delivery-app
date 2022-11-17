@@ -38,7 +38,8 @@ export const Title = styled.h3`
 
 export const WrapperItem = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   background: #EAF1EF;
   padding: 12px 0;
   width: 100%;

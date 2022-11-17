@@ -20,6 +20,7 @@ export const Text = styled.h1`
   color: white;
   font-size: 18px;
   font-weight: bold;
+  width: 80px
 `;
 
 export const Container = styled.section`

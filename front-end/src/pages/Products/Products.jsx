@@ -78,7 +78,7 @@ function Products() {
           data-testid="customer_products__checkout-bottom-value"
           type="button"
         >
-          {cartSum.replace('.', ',')}
+          {`R$${cartSum.replace('.', ',')}`}
         </S.Text>
       </S.ButtonCart>
       <S.Container>
