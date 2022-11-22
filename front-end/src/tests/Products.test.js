@@ -119,7 +119,7 @@ describe('Testa a adição de quantidade de produtos', () => {
     expect(qtyInput).toHaveValue('0');
     expect(navBarCartBtn).toBeDisabled();
     userEvent.click(incrementQtyBtn);
-    const checkoutBtnAfterClick = screen.getByRole('button', { name: '2,20' });
+    const checkoutBtnAfterClick = screen.getByText('R$2,20');
     expect(checkoutBtnAfterClick).toBeInTheDocument();
     userEvent.type(qtyInput, '3');
     expect(qtyInput).toHaveDisplayValue('13');
