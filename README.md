@@ -56,3 +56,29 @@ Na pasta raiz do projeto, utilize o comando `docker-compose up -d`. O Front-end 
 Para rodar localmente, é necessário rodar o comando `npm install` tanto na pasta de Front-end quanto na pasta de Back-end. Além disso, é preciso colocar as credencias do seu banco de dados no arquivo `./back-end/.env.example` e depois renomar o arquivos para apenas `.env` .Após as configurações serem feitas, basta usar o comando `npm start` em cada pasta.
 
 ###
+
+<h2 align="left">Sobre o banco de dados</h2>
+
+Ao inicializar os serviços através do `docker-compose` ou do `npm start` no Back-end, serão criados 3 usuários, que são estes:
+
+```JavaScript
+[
+  {
+    email: 'adm@deliveryapp.com',
+    password: '--adm2@21!!--',
+    role: 'administrator',
+  },
+  {
+    email: 'fulana@deliveryapp.com',
+    password: 'fulana@123',
+    role: 'seller',
+  },
+  {
+    email: 'zebirita@email.com',
+    password: '$#zebirita#$',
+    role: 'customer',
+  },
+],
+```
+
+Dependendo do usuário que será usado no login, a aplicação levará para diferente telas.
