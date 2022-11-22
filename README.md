@@ -90,40 +90,56 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
 <table>
   <tr>
     <td align="top">
-      <h3 align="left">Login</h3>
-      <img width="300px" src="./images/login.png" alt="login-preview" />
+      <div>
+        <h3 align="left">Login</h3>
+        <img width="300px" src="./images/login.png" alt="login-preview" />
+      </div>
     </td>
     <td align="top">
-      <h3 align="left">Cadastro</h3>
-      <img width="300px" src="./images/register.png" alt="register-preview" />
+      <div>
+        <h3 align="left">Cadastro</h3>
+        <img width="300px" src="./images/register.png" alt="register-preview" />
+      </div>
     </td>
     <td align="top">
-      <h3 align="left">Produtos</h3>
-      <img width="300px" src="./images/products.png" alt="products-preview" />
+      <div>
+        <h3 align="left">Produtos</h3>
+        <img width="300px" src="./images/products.png" alt="products-preview" />
+      </div>
     </td>
   </tr>
   <tr>
     <td align="top">
-      <h3 align="left">Checkout</h3>
-      <img width="300px" src="./images/checkout.png" alt="checkout-preview" />
-    </td>
-     <td align="top">
-      <h3 align="left">Detalhes do Pedido (Cliente)</h3>
-      <img width="300px" src="./images/order-details.png" alt="order-details-preview" />
+      <div>
+        <h3 align="left">Checkout</h3>
+        <img width="300px" src="./images/checkout.png" alt="checkout-preview" />
+      <div>
     </td>
     <td align="top">
-      <h3 align="left">Lista de Pedidos (Cliente)</h3>
-      <img width="300px" src="./images/orders.png" alt="orders-preview" />
+      <div>
+        <h3 align="left">Detalhes do Pedido (Cliente)</h3>
+        <img width="300px" src="./images/order-details.png" alt="order-details-preview" />
+      </div>
+    </td>
+    <td align="top">
+      <div>
+        <h3 align="left">Lista de Pedidos (Cliente)</h3>
+        <img width="300px" src="./images/orders.png" alt="orders-preview" />
+      </div>
     </td>
   </tr>
   <tr>
     <td align="top">
-      <h3 align="left">Detalhes do Pedido (Vendedor)</h3>
-      <img width="300px" src="./images/seller-order-details.png" alt="seller-order-details-preview" />
+     <div>
+       <h3 align="left">Detalhes do Pedido (Vendedor)</h3>
+        <img width="300px" src="./images/seller-order-details.png" alt="seller-order-details-preview" />
+     </div
     </td>
     <td align="top">
-      <h3 align="left">Gerenciamento de Usuários (Administrador)</h3>
-      <img width="300px" src="./images/admin.png" alt="admin-preview" />
+      <div>
+        <h3 align="left">Gerenciamento de Usuários (Administrador)</h3>
+        <img width="300px" src="./images/admin.png" alt="admin-preview" />
+      </div>
     </td>
 </table>
 
