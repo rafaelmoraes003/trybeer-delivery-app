@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import createSaleProductRequest from '../../utils/createSaleProductRequest';
 import createSaleRequest from '../../utils/createSaleRequest';
+import getToast from '../../utils/getToast';
 import getTotalPrice from '../../utils/getTotalPrice';
 import InputWithLabel from '../InputLabel/InputWithLabel';
 
@@ -13,7 +16,6 @@ function CheckoutDetails() {
   const [sellerId, setSellerId] = useState(null);
   const [address, setAddress] = useState('');
   const [number, setNumber] = useState(0);
-  const [errorMessage, setErrorMessage] = useState(false);
 
   useEffect(() => {
     const getSellers = async () => {
@@ -38,7 +40,7 @@ function CheckoutDetails() {
       userData, totalPrice, address, number, sellerId,
     });
     if (body.error) {
-      setErrorMessage(true);
+      getToast('error', 'Algo deu errado.');
     } else {
       await createSaleProductRequest(body.id);
       navigateTo(`/customer/orders/${body.id}`);
@@ -91,11 +93,10 @@ function CheckoutDetails() {
       >
         Finalizar Pedido
       </S.Button>
-      {errorMessage && (
-        <div data-testid="customer_checkout__error-message">
-          <p>Dados inválidos.</p>
-        </div>
-      )}
+
+      <div data-testid="customer_checkout__error-message">
+        <ToastContainer />
+      </div>
     </S.Container>
   );
 }
