@@ -50,7 +50,7 @@ function Login() {
         <img src={ logo } width={ 400 } alt="Logo do App Trybeer" />
       </S.Image>
       <S.Forms>
-        <h1>App Delivery</h1>
+        <h1>Trybeer Delivery App</h1>
         <Input
           testId="common_login__input-email"
           type="text"
