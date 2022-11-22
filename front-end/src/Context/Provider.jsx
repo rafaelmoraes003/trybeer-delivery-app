@@ -20,7 +20,11 @@ function Provider({ children }) {
     getUsers();
 
     return () => {
-      setUsers([]);
+      setUsers({
+        name: '',
+        email: '',
+        password: '',
+      });
     };
   }, [token]);
 

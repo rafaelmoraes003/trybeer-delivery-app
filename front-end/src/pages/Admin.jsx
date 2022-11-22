@@ -1,7 +1,7 @@
 import NavBar from '../components/Navbar/NavBar';
-import AdminForm from '../components/AdminForm';
+import AdminForm from '../components/AdminForm/AdminForm';
 import Provider from '../Context/Provider';
-import UsersTable from '../components/UsersTable';
+import UsersTable from '../components/UsersTable/UsersTable';
 
 function Admin() {
   return (
