@@ -1,10 +1,58 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<h1 align="left">Trybeer Delivery App</h1>
+
+###
+
+<p align="left">Este projeto full-stack teve como objetivo criar um e-commerce que simula uma distribuidora de bebidas, sendo possível criar contas, realizar login, ter acesso a uma tela de produtos para fazer a compra deles, tela de checkout, telas sobre pedidos e atualizar status desse pedidos. Além disso, se o usuário for do tipo administrador, é possível criar novos usuários (cliente ou vendedor) e também removê-los.<br><br>O Front-end foi feito utilizando React.js com Hooks e styled-components para a estilização. o Back-end foi feito usando Node.js, Express e Sequelize como ORM. O banco de dados utilizado foi o MySQL.<br><br>Ambas as pontas da aplicação possuem testes que cobrem praticamente todas as linhas de suas respectivas pastas, sendo o Front-end feito com Jest e React Testing Library e o Back-end feito com Mocha, Chai e Sinon.</p>
+
+###
+
+<h2 align="left">Tecnologias utilizadas</h2>
+
+###
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="50" width="62" alt="javascript logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="50" width="62" alt="react logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="50" width="62" alt="nodejs logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height="50" width="62" alt="express logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" height="50" width="62" alt="sequelize logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="50" width="62" alt="mysql logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="50" width="62" alt="jest logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg" height="50" width="62" alt="mocha logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" height="50" width="62" alt="docker logo"  />
+</div>
+
+###
+
+<h2 align="left">Como utilizar a aplicação</h2>
+
+###
+
+Faça o clone da aplicação usando o comando `git clone`. Após isso, entre na pasta do projeto utilizando o comando `cd trybeer-delivery-app`.
+
+###
+
+<h2 align="left">Configurações necessárias</h2>
+
+###
+
+- `node` a partir da versão `16.0.0 LTS`
+- `docker-compose` a partir da versão `2.5.0`
+
+###
+
+<h2 align="left">Rodando a aplicação com o Docker</h2>
+
+###
+
+Na pasta raiz do projeto, utilize o comando `docker-compose up -d`. O Front-end estará localizado na porta 3000, o Back-end na porta 3001 e o banco de dados (MySQL) na porta 3002.
+
+###
+
+<h2 align="left">Rodando a aplicação localmente</h2>
+
+###
+
+Para rodar localmente, é necessário rodar o comando `npm install` tanto na pasta de Front-end quanto na pasta de Back-end. Além disso, é preciso colocar as credencias do seu banco de dados no arquivo `./back-end/.env.example` e depois renomar o arquivos para apenas `.env` .Após as configurações serem feitas, basta usar o comando `npm start` em cada pasta.
+
+###
