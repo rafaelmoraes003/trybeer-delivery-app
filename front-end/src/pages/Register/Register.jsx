@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   RiAccountCircleLine,
@@ -7,6 +9,7 @@ import {
   RiGitRepositoryPrivateLine }
   from 'react-icons/ri';
 import * as S from './styled';
+import getToast from '../../utils/getToast';
 
 function Register() {
   const navigateTo = useNavigate();
@@ -17,7 +20,6 @@ function Register() {
   });
 
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const [loginFailed, setLoginFailed] = useState(false);
 
   useEffect(() => {
     const { email, password, name } = data;
@@ -50,7 +52,7 @@ function Register() {
     delete body.password;
 
     if (body.error) {
-      setLoginFailed(true);
+      getToast('error', 'Usuário já existente.');
     } else {
       localStorage.setItem('user', JSON.stringify(body));
       navigateTo(`/${body.role}/products`);
@@ -116,13 +118,9 @@ function Register() {
           CADASTRAR
         </S.Button>
       </S.Forms>
-      {
-        (loginFailed && (
-          <p data-testid="common_register__element-invalid_register">
-            Usuário já existente.
-          </p>
-        ))
-      }
+      <div data-testid="common_register__element-invalid_register">
+        <ToastContainer />
+      </div>
 
     </S.Wrapper>
   );
