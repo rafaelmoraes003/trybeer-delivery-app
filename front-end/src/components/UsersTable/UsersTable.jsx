@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import UsersContext from '../../Context/UsersContext';
+import getToast from '../../utils/getToast';
 
 import * as S from './styled';
 
@@ -12,6 +13,7 @@ function UsersTable() {
   }, [users]);
 
   const removeUser = async (id) => {
+    getToast('success', 'Usuário removido.');
     const { token } = JSON.parse(localStorage.getItem('user'));
     deleteUser(id);
     await fetch(`http://localhost:3001/users/admin/${id}`, {

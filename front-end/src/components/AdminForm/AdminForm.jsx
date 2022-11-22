@@ -1,6 +1,9 @@
 import { useState, useContext } from 'react';
+import { ToastContainer } from 'react-toastify';
 import UsersContext from '../../Context/UsersContext';
+import getToast from '../../utils/getToast';
 import InputWithLabel from '../InputLabel/InputWithLabel';
+import 'react-toastify/dist/ReactToastify.css';
 
 import * as S from './styled';
 
@@ -10,7 +13,6 @@ function AdminForm() {
   const [password, setPassword] = useState('');
   const availabeRoles = ['customer', 'seller'];
   const [role, setRole] = useState(availabeRoles[0]);
-  const [errorMessage, setErrorMessage] = useState(false);
   const { addUser } = useContext(UsersContext);
 
   const validateFields = () => {
@@ -36,9 +38,9 @@ function AdminForm() {
 
     const body = await response.json();
     if (body.error) {
-      setErrorMessage(true);
+      getToast('error', 'Usuário já existente');
     } else {
-      setErrorMessage(false);
+      getToast('success', 'Usuário criado com sucesso!');
       delete body.password;
       delete body.token;
       addUser(body);
@@ -95,11 +97,9 @@ function AdminForm() {
           </S.Button>
         </S.Label>
 
-        {errorMessage && (
-          <div data-testid="admin_manage__element-invalid-register">
-            <p>Usuário já existente</p>
-          </div>
-        )}
+        <div data-testid="admin_manage__element-invalid-register">
+          <ToastContainer />
+        </div>
 
       </S.Form>
     </>
