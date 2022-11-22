@@ -108,7 +108,7 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
   <tr>
     <td valign="top">
       <h3 align="left">Checkout</h3>
-      <img width="500px" src="./images/checkout.png" alt="checkout-preview"
+      <img widt/h="500px" src="./images/checkout.png" alt="checkout-preview"
       />
     </td>
      <td valign="top">
@@ -137,3 +137,13 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
     </td>
   </tr>
 </table>
+
+###
+
+<h2 align="left">Observações ao criar usuário</h2>
+
+Para se criar um usuário, é necessário que o usuário preencha as seguintes condições:
+
+- `Email` com formato válido
+- `Nome` com no mínimo 12 caracteres
+- `Senha` com no mínimo 6 caracteres
