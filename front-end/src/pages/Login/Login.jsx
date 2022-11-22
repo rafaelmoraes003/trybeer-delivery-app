@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Input from '../../components/InputLabel/InputWithLabel';
 import loginRoutes from '../../utils/loginRoutes';
 import logo from '../../images/Trybeer.png';
+import getToast from '../../utils/getToast';
 
 import * as S from './styled';
 
@@ -10,7 +13,6 @@ function Login() {
   const navigateTo = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [invalidUserMessage, setInvalidUserMessage] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -35,7 +37,7 @@ function Login() {
     const body = await response.json();
 
     if (body.error) {
-      setInvalidUserMessage(true);
+      getToast('error', 'Usuário inválido.');
     } else {
       localStorage.setItem('user', JSON.stringify(body));
       navigateTo(loginRoutes[body.role]);
@@ -81,11 +83,9 @@ function Login() {
         </S.ButtonRegister>
       </S.Forms>
 
-      {invalidUserMessage && (
-        <div data-testid="common_login__element-invalid-email">
-          <p>Usuário inválido.</p>
-        </div>
-      )}
+      <div data-testid="common_login__element-invalid-email">
+        <ToastContainer />
+      </div>
     </S.Container>
   );
 }
