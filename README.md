@@ -82,3 +82,58 @@ Ao inicializar os serviços através do `docker-compose` ou do `npm start` no Ba
 ```
 
 Dependendo do usuário que será usado no login, a aplicação levará para diferente telas.
+
+###
+
+<h2 align="left">Telas</h2>
+
+<table>
+  <tr>
+    <td valign="top">
+      <h3 align="left">Login</h3>
+      <img width="500px" src="./images/login.png" alt="login-preview"
+      />
+    </td>
+    <td valign="top">
+      <h3 align="left">Cadastro</h3>
+      <img width="500px" src="./images/register.png" alt="register-preview"
+      />
+    </td>
+    <td valign="top">
+      <h3 align="left">Produtos</h3>
+      <img width="500px" src="./images/products.png" alt="products-preview"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <h3 align="left">Checkout</h3>
+      <img width="500px" src="./images/checkout.png" alt="checkout-preview"
+      />
+    </td>
+     <td valign="top">
+      <h3 align="left">Detalhes do Pedido (Cliente)</h3>
+      <img width="500px" src="./images/order-details.png" alt="order-details-preview"
+      />
+      <h4>(Possível mudar status do pedido)</h4>
+    </td>
+    <td valign="top">
+      <h3 align="left">Lista de Pedidos (Cliente)</h3>
+      <img width="500px" src="./images/orders.png" alt="orders-preview"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <h3 align="left">Detalhes do Pedido (Vendedor)</h3>
+      <img width="500px" src="./images/seller-order-details.png" alt="seller-order-details-preview"
+      />
+      <h4>(Possível mudar status do pedido)</h4>
+    </td>
+    <td valign="top">
+      <h3 align="left">Gerenciamento de Usuários (Administrador)</h3>
+      <img width="500px" src="./images/admin.png" alt="admin-preview"
+      />
+    </td>
+  </tr>
+</table>
