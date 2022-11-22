@@ -1,5 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
-import UsersContext from '../Context/UsersContext';
+import UsersContext from '../../Context/UsersContext';
+
+import * as S from './styled';
 
 function UsersTable() {
   const { users, deleteUser } = useContext(UsersContext);
@@ -21,22 +23,22 @@ function UsersTable() {
   };
 
   return (
-    <div>
+    <S.Main>
       <h1>Lista de usuários</h1>
-      <table>
+      <S.Table>
         <thead>
-          <tr>
+          <S.TableRow>
             <th>Item</th>
             <th>Nome</th>
             <th>E-mail</th>
             <th>Tipo</th>
             <th>Excluir</th>
-          </tr>
+          </S.TableRow>
         </thead>
         {tableUsers.length ? (
           <tbody>
             {users.map((user, i) => (
-              <tr key={ user.id }>
+              <S.TableRow key={ user.id }>
                 <td data-testid={ `admin_manage__element-user-table-item-number-${i}` }>
                   {String(i).padStart(2 + 1, 0)}
                 </td>
@@ -50,19 +52,19 @@ function UsersTable() {
                   {user.role === 'customer' ? 'Cliente' : 'Pessoa Vendedora'}
                 </td>
                 <td data-testid={ `admin_manage__element-user-table-remove-${i}` }>
-                  <button
+                  <S.Button
                     type="button"
                     onClick={ () => removeUser(user.id) }
                   >
                     Excluir
-                  </button>
+                  </S.Button>
                 </td>
-              </tr>
+              </S.TableRow>
             ))}
           </tbody>
         ) : null}
-      </table>
-    </div>
+      </S.Table>
+    </S.Main>
   );
 }
 
