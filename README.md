@@ -89,66 +89,51 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
 
 <table>
   <tr>
-    <td align="top">
-      <div>
-        <h3 align="left">Login</h3>
-        <img width="300px" src="./images/login.png" alt="login-preview" />
-      </div>
+    <td width="300px">
+      <h2>Login</h2>
+      <img src="./images/login.png" alt="login-preview" />
     </td>
-    <td align="top">
-      <div>
-        <h3 align="left">Cadastro</h3>
-        <img width="300px" src="./images/register.png" alt="register-preview" />
-      </div>
+    <td width="300px">
+      <h2>Cadastro</h2>
+      <img src="./images/register.png" alt="register-preview" />
     </td>
-    <td align="top">
-      <div>
-        <h3 align="left">Produtos</h3>
-        <img width="300px" src="./images/products.png" alt="products-preview" />
-      </div>
+    <td width="300px">
+      <h2>Produtos</h2>
+      <img src="./images/products.png" alt="products-preview" />
     </td>
   </tr>
   <tr>
-    <td align="top">
-      <div>
-        <h3 align="left">Checkout</h3>
-        <img width="300px" src="./images/checkout.png" alt="checkout-preview" />
-      <div>
+    <td  width="300px">
+      <h2>Checkout</h2>
+      <img src="./images/checkout.png" alt="checkout-preview" />
     </td>
-    <td align="top">
-      <div>
-        <h3 align="left">Detalhes do Pedido (Cliente)</h3>
-        <img width="300px" src="./images/order-details.png" alt="order-details-preview" />
-      </div>
+    <td width="300px">
+      <h2>Detalhes do pedido (Cliente)</h2>
+      <img src="./images/order-details.png" alt="order-details-preview" />
     </td>
-    <td align="top">
-      <div>
-        <h3 align="left">Lista de Pedidos (Cliente)</h3>
-        <img width="300px" src="./images/orders.png" alt="orders-preview" />
-      </div>
+    <td width="300px">
+      <h2>Listagem de pedidos</h2>
+      <img src="./images/orders.png" alt="orders-preview" />
     </td>
   </tr>
   <tr>
-    <td align="top">
-     <div>
-       <h3 align="left">Detalhes do Pedido (Vendedor)</h3>
-        <img width="300px" src="./images/seller-order-details.png" alt="seller-order-details-preview" />
-     </div
+    <td width="300px">
+      <h2>Detalhes do pedido (Vendedor)</h2>
+      <img src="./images/seller-order-details.png" alt="seller-order-details-preview" />
     </td>
-    <td align="top">
-      <div>
-        <h3 align="left">Gerenciamento de Usuários (Administrador)</h3>
-        <img width="300px" src="./images/admin.png" alt="admin-preview" />
-      </div>
+    <td width="300px">
+      <h2>Gerenciamento de usuários (Admin)</h2>
+      <img src="./images/admin.png" alt="admin-preview" />
     </td>
+  </tr>
 </table>
 
 ###
 
-<h2 align="left">Observações ao criar usuário</h2>
+<h2 align="left">Observações ao cadastrar usuário</h2>
 
-Para se criar um usuário, é necessário que o usuário preencha as seguintes condições:
+Para cadastrar um novo usuário, é necessário que o usuário preencha as seguintes condições:
 
-- `Email` com formato válido
+- `Email` com formato válido ```(usuario@email.com)```
 - `Nome` com no mínimo 12 caracteres
 - `Senha` com no mínimo 6 caracteres
