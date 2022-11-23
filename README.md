@@ -137,3 +137,7 @@ Para cadastrar um novo usuário, é necessário que o usuário preencha as segui
 - `Email` com formato válido ```(usuario@email.com)```
 - `Nome` com no mínimo 12 caracteres
 - `Senha` com no mínimo 6 caracteres
+
+<h2 align="left">Agradecimentos</h2>
+
+Gostaria de agradecer meus colegas [Klaus Lübe](https://www.linkedin.com/in/klauslube/), [ Lindoelson Lopes](https://www.linkedin.com/in/joselindoelsonlopes/), [Caio Imbroisi](https://www.linkedin.com/in/caio-imbroisi/) e [Daniel Coelho](https://www.linkedin.com/in/daniel-alves-coelho/) por terem desenvolvido esse projeto comigo!
