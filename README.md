@@ -2,11 +2,11 @@
 
 ###
 
-<p align="left">Este projeto full-stack teve como objetivo criar um e-commerce que simula uma distribuidora de bebidas, sendo possível criar contas, realizar login, ter acesso a uma tela de produtos para fazer a compra deles, tela de checkout, telas sobre pedidos e atualizar status desse pedidos. Além disso, se o usuário for do tipo administrador, é possível criar novos usuários (cliente ou vendedor) e também removê-los.<br><br>O Front-end foi feito utilizando React.js com Hooks e styled-components para a estilização. o Back-end foi feito usando Node.js, Express e Sequelize como ORM. O banco de dados utilizado foi o MySQL.<br><br>Ambas as pontas da aplicação possuem testes que cobrem praticamente todas as linhas de suas respectivas pastas, sendo o Front-end feito com Jest e React Testing Library e o Back-end feito com Mocha, Chai e Sinon.</p>
+<p align="left">This full-stack project aimed to create an e-commerce that simulates a beverage distributor, making it possible to create accounts, log in, access a product screen to purchase them, checkout screen, order screens and update status of that order. Furthermore, if the user is an administrator type, it is possible to create new users (customer or seller) and also remove them.<br><br>The Front-end was made using React.js with Hooks and styled-components to the styling. Back-end was made using Node.js, Express and Sequelize as ORM. The database used was MySQL.<br><br>Both ends of the application have tests that cover practically all the lines of their respective folders, the Front-end being made with Jest and React Testing Library and the Back-end made with Mocha, Chai and Sinon.</p>
 
 ###
 
-<h2 align="left">Tecnologias utilizadas</h2>
+<h2 align="left">Technologies used</h2>
 
 ###
 
@@ -24,42 +24,41 @@
 
 ###
 
-<h2 align="left">Como utilizar a aplicação</h2>
+<h2 align="left">How to use the application</h2>
 
 ###
 
-Faça o clone da aplicação usando o comando `git clone`. Após isso, entre na pasta do projeto utilizando o comando `cd trybeer-delivery-app`.
+Clone the application using the `git clone` command. After that, enter the project folder using the `cd trybeer-delivery-app` command.
 
 ###
 
-<h2 align="left">Configurações necessárias</h2>
+<h2 align="left">Required settings</h2>
 
 ###
 
-- `node` a partir da versão `16.0.0 LTS`
-- `docker-compose` a partir da versão `2.5.0`
+- `node` from version `16.0.0 LTS`
+- `docker-compose` from version `2.5.0`
 
 ###
 
-<h2 align="left">Rodando a aplicação com o Docker</h2>
+<h2 align="left">Running the application with Docker</h2>
 
 ###
 
-Na pasta raiz do projeto, utilize o comando `docker-compose up -d`. O Front-end estará localizado na porta 3000, o Back-end na porta 3001 e o banco de dados (MySQL) na porta 3002.
+In the root folder of the project, use the `docker-compose up -d` command. The Front-end will be located on port 3000, the Back-end on port 3001 and the database (MySQL) on port 3002.
+###
+
+<h2 align="left">Running the application locally</h2>
 
 ###
 
-<h2 align="left">Rodando a aplicação localmente</h2>
+To run locally, it is necessary to run the `npm install` command both in the Front-end folder and in the Back-end folder. In addition, you need to put your database credentials in the `./back-end/.env.example` file and then rename the files to just `.env` . After the settings are done, just use the ` command npm start` in each folder.
 
 ###
 
-Para rodar localmente, é necessário rodar o comando `npm install` tanto na pasta de Front-end quanto na pasta de Back-end. Além disso, é preciso colocar as credencias do seu banco de dados no arquivo `./back-end/.env.example` e depois renomar o arquivos para apenas `.env` .Após as configurações serem feitas, basta usar o comando `npm start` em cada pasta.
+<h2 align="left">About the database</h2>
 
-###
-
-<h2 align="left">Sobre o banco de dados</h2>
-
-Ao inicializar os serviços através do `docker-compose` ou do `npm start` no Back-end, serão criados 3 usuários, que são estes:
+When starting the services through `docker-compose` or `npm start` in the Back-end, 3 users will be created, which are these:
 
 ```JavaScript
 [
@@ -81,11 +80,11 @@ Ao inicializar os serviços através do `docker-compose` ou do `npm start` no Ba
 ],
 ```
 
-Dependendo do usuário que será usado no login, a aplicação levará para diferente telas.
+Depending on the user that will be used in the login, the application will take you to different screens.
 
 ###
 
-<h2 align="left">Telas</h2>
+<h2 align="left">Screens</h2>
 
 <table>
   <tr>
@@ -94,11 +93,11 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
       <img src="./images/login.png" alt="login-preview" />
     </td>
     <td width="300px">
-      <h2>Cadastro</h2>
+      <h2>Register</h2>
       <img src="./images/register.png" alt="register-preview" />
     </td>
     <td width="300px">
-      <h2>Produtos</h2>
+      <h2>Products</h2>
       <img src="./images/products.png" alt="products-preview" />
     </td>
   </tr>
@@ -108,21 +107,21 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
       <img src="./images/checkout.png" alt="checkout-preview" />
     </td>
     <td width="300px">
-      <h2>Detalhes do pedido (Cliente)</h2>
+      <h2>Order Details (Client)</h2>
       <img src="./images/order-details.png" alt="order-details-preview" />
     </td>
     <td width="300px">
-      <h2>Listagem de pedidos</h2>
+      <h2>Orders List</h2>
       <img src="./images/orders.png" alt="orders-preview" />
     </td>
   </tr>
   <tr>
     <td width="300px">
-      <h2>Detalhes do pedido (Vendedor)</h2>
+      <h2>Order Details (Seller)</h2>
       <img src="./images/seller-order-details.png" alt="seller-order-details-preview" />
     </td>
     <td width="300px">
-      <h2>Gerenciamento de usuários (Admin)</h2>
+      <h2>User Management (Admin)</h2>
       <img src="./images/admin.png" alt="admin-preview" />
     </td>
   </tr>
@@ -130,14 +129,14 @@ Dependendo do usuário que será usado no login, a aplicação levará para dife
 
 ###
 
-<h2 align="left">Observações ao cadastrar usuário</h2>
+<h2 align="left">Notes when registering a user</h2>
 
-Para cadastrar um novo usuário, é necessário que o usuário preencha as seguintes condições:
+To register a new user, the user must meet the following conditions:
 
-- `Email` com formato válido ```(usuario@email.com)```
-- `Nome` com no mínimo 12 caracteres
-- `Senha` com no mínimo 6 caracteres
+- `Email` with valid format ```(user@email.com)```
+- `Name` with at least 12 characters
+- `Password` with at least 6 characters
 
-<h2 align="left">Agradecimentos</h2>
+<h2 align="left">Thanks</h2>
 
-Gostaria de agradecer meus colegas [Klaus Lübe](https://www.linkedin.com/in/klauslube/), [ Lindoelson Lopes](https://www.linkedin.com/in/joselindoelsonlopes/), [Caio Imbroisi](https://www.linkedin.com/in/caio-imbroisi/) e [Daniel Coelho](https://www.linkedin.com/in/daniel-alves-coelho/) por terem desenvolvido esse projeto comigo!
+I would like to thank my colleagues [Klaus Lübe](https://www.linkedin.com/in/klauslube/), [ Lindoelson Lopes](https://www.linkedin.com/in/joselindoelsonlopes/), [Caio Imbroisi ](https://www.linkedin.com/in/caio-imbroisi/) and [Daniel Coelho](https://www.linkedin.com/in/daniel-alves-coelho/) for developing this project with me !
