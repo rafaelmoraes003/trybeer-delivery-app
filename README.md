@@ -2,7 +2,7 @@
 
 ###
 
-<p align="left">This full-stack project aimed to create an e-commerce that simulates a beverage distributor, making it possible to create accounts, log in, access a product screen to purchase them, checkout screen, order screens and update status of that order. Furthermore, if the user is an administrator type, it is possible to create new users (customer or seller) and also remove them.<br><br>The Front-end was made using React.js with Hooks and styled-components to the styling. Back-end was made using Node.js, Express and Sequelize as ORM. The database used was MySQL.<br><br>Both ends of the application have tests that cover practically all the lines of their respective folders, the Front-end being made with Jest and React Testing Library and the Back-end made with Mocha, Chai and Sinon.</p> 
+<p align="left">This full-stack project aimed to create an e-commerce that simulates a beverage distributor, making it possible to create accounts, log in, access a product screen to purchase them, checkout screen, order screens and update status of that order. Furthermore, if the user is an administrator type, it is possible to create new users (customer or seller) and also remove them.<br><br>The Front-end was made using React.js with Hooks and styled-components to the styling. Back-end was made using Node.js, Express and Sequelize as ORM. The database used was MySQL.<br><br>Both ends of the application have tests that cover practically all the lines of their respective folders, the Front-end being made with Jest and React Testing Library and the Back-end made with Mocha, Chai and Sinon.</p>
 
 ###
 
